@@ -27,12 +27,61 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:28px}
 
 .topbar{border-bottom:1px solid var(--line);background:var(--concrete);position:sticky;top:0;z-index:10}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
-.mark{font-size:22px;font-weight:700;letter-spacing:-0.01em}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:66px}
+.mark{font-size:22px;font-weight:700;letter-spacing:-0.01em;flex-shrink:0}
 .mark span{display:block;font-size:11.5px;font-weight:400;color:var(--muted);line-height:1.3;margin-top:-2px}
 .lang{font:inherit;font-size:14px;font-weight:600;background:none;border:1px solid var(--steel);
   color:var(--steel);padding:6px 16px;cursor:pointer;border-radius:2px}
 .lang:hover{background:var(--steel);color:var(--concrete)}
+section[id],main[id]{scroll-margin-top:74px}
+
+/* ---------- navigation ---------- */
+.nav-list{display:flex;align-items:center;gap:22px}
+.nav-list a{font-size:15px;font-weight:600;color:var(--muted);padding-block:4px;
+  border-bottom:2px solid transparent}
+.nav-list a:hover{color:var(--steel);border-bottom-color:var(--chill)}
+.bar-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;
+  font:inherit;background:none;border:1px solid var(--steel);border-radius:2px;color:var(--steel);cursor:pointer}
+.icon-btn:hover{background:var(--steel);color:var(--concrete)}
+.icon-btn svg{width:19px;height:19px;display:block}
+.menu-btn{display:none}
+.menu-btn .ico-close{display:none}
+.menu-btn[aria-expanded="true"] .ico-open{display:none}
+.menu-btn[aria-expanded="true"] .ico-close{display:block}
+@media (max-width:980px){
+  .menu-btn{display:inline-flex}
+  .nav{position:absolute;inset-inline:0;top:66px;display:none;background:var(--concrete);
+    border-bottom:1px solid var(--line);max-height:calc(100vh - 66px);overflow-y:auto}
+  .nav.open{display:block}
+  .nav-list{flex-direction:column;align-items:stretch;gap:0;
+    max-width:1080px;margin-inline:auto;padding-inline:28px}
+  .nav-list li + li{border-top:1px solid var(--line)}
+  .nav-list a{display:block;padding-block:15px;font-size:16.5px;color:var(--steel);border-bottom:none}
+  .nav-list a:hover{color:var(--chill)}
+}
+
+/* ---------- about ---------- */
+.about{padding-block:56px}
+.about h2{font-size:28px;margin-bottom:8px}
+.about .sub{color:var(--muted);max-width:62ch}
+.facts{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;max-width:620px}
+.fact{padding-block:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact + .fact{border-inline-start:1px solid var(--line);padding-inline-start:26px}
+.fact .k{display:block;font-size:14px;color:var(--muted)}
+.fact .v{display:block;font-size:26px;font-weight:700;margin-top:4px}
+
+/* ---------- projects ---------- */
+.projects{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:56px}
+.projects h2{font-size:28px;margin-bottom:8px}
+.projects .sub{color:var(--muted);max-width:58ch;margin-bottom:30px}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj{background:var(--concrete);border:1px solid var(--line);padding:22px 24px}
+.proj h3{font-size:18px}
+.proj .meta{font-size:14px;color:var(--muted);margin-top:5px}
+.proj p{font-size:15px;color:var(--muted);margin-top:10px}
+.proj-empty{padding-block:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  color:var(--muted);font-size:15.5px}
 
 .hero{padding-block:56px 40px}
 .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center}
@@ -125,6 +174,7 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
 
 @media (max-width:900px){
   .prods{grid-template-columns:repeat(3,1fr)}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:34px}
@@ -136,6 +186,14 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
 @media (max-width:560px){
   body{font-size:16px}
   .wrap{padding-inline:20px}
+  .nav-list{padding-inline:20px}
+  .mark{font-size:19px}
+  .mark span{display:none}
+  .lang{padding:6px 11px;font-size:13px}
+  .icon-btn{width:34px;height:34px}
+  .facts{grid-template-columns:1fr}
+  .fact + .fact{border-top:none;border-inline-start:none;padding-inline-start:0}
+  .proj-grid{grid-template-columns:1fr}
   .hero{padding-block:38px 30px}
   .hero h1{max-width:none}
   .grid4{grid-template-columns:1fr}
@@ -145,7 +203,7 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   .cell:last-child{border-bottom:1px solid var(--line)}
   .scope{grid-template-columns:1fr}
   .prods{grid-template-columns:1fr 1fr;gap:30px 22px}
-  .offer,.services,.products,.partners,.approach,.contact{padding-block:44px}
+  .offer,.services,.products,.partners,.approach,.contact,.about,.projects{padding-block:44px}
   .btn{flex:1;text-align:center}
 }
 </style>
@@ -157,7 +215,34 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
     <a class="mark" href="#top">Albahrany
       <span data-ar="التبريد المركزي والمقاولات الإنشائية" data-en="Central cooling &amp; general contracting">التبريد المركزي والمقاولات الإنشائية</span>
     </a>
-    <button class="lang" id="langBtn" type="button">English</button>
+
+    <nav class="nav" id="nav" data-ar-label="قائمة الأقسام" data-en-label="Section navigation" aria-label="قائمة الأقسام">
+      <ul class="nav-list">
+        <li><a href="#about" data-ar="من نحن" data-en="About">من نحن</a></li>
+        <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+        <li><a href="#projects" data-ar="الأعمال المنجزة" data-en="Projects">الأعمال المنجزة</a></li>
+        <li><a href="#products" data-ar="المنتجات" data-en="Products">المنتجات</a></li>
+        <li><a href="#partners" data-ar="الوكالات" data-en="Partners">الوكالات</a></li>
+        <li><a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+      </ul>
+    </nav>
+
+    <div class="bar-actions">
+      <a class="icon-btn" href="tel:+9647702394602" data-ar-label="اتصل بنا" data-en-label="Call us" aria-label="اتصل بنا">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6.4 3.4h3.1l1.5 3.9-2 1.4a12.4 12.4 0 0 0 6.3 6.3l1.4-2 3.9 1.5v3.1a2 2 0 0 1-2.2 2A17.4 17.4 0 0 1 4.4 5.6a2 2 0 0 1 2-2.2z"/>
+        </svg>
+      </a>
+      <button class="lang" id="langBtn" type="button">English</button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav"
+              data-ar-label="القائمة" data-en-label="Menu" aria-label="القائمة">
+        <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -209,6 +294,27 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   <section class="agency">
     <div class="wrap">
       <p data-ar="وكلاء حصريون في العراق لشركة Euroclima — إيطاليا والنمسا" data-en="Exclusive agents in Iraq for Euroclima — Italy and Austria">وكلاء حصريون في العراق لشركة Euroclima — إيطاليا والنمسا</p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============
+       نصوص مؤقتة — استبدل قيمة data-ar وdata-en والنص الظاهر بين الوسمين بالمعلومات الحقيقية:
+       النبذة، سنة التأسيس، وحجم الكادر الفني.
+  ============================================ -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2 data-ar="من نحن" data-en="About us">من نحن</h2>
+      <p class="sub" data-ar="[نص مؤقت] نبذة تعريفية عن شركة البحراني — يُكتب هنا تعريف الشركة ومجال عملها وخبرتها." data-en="[Placeholder] A short introduction to Albahrany — company background, field of work and experience goes here.">[نص مؤقت] نبذة تعريفية عن شركة البحراني — يُكتب هنا تعريف الشركة ومجال عملها وخبرتها.</p>
+      <div class="facts">
+        <div class="fact">
+          <span class="k" data-ar="سنة التأسيس" data-en="Established">سنة التأسيس</span>
+          <span class="v" data-ar="—" data-en="—">—</span>
+        </div>
+        <div class="fact">
+          <span class="k" data-ar="الكادر الفني" data-en="Technical staff">الكادر الفني</span>
+          <span class="v" data-ar="—" data-en="—">—</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -264,6 +370,26 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
           <li data-ar="إدارة المشاريع والإشراف" data-en="Project management and supervision">إدارة المشاريع والإشراف</li>
         </ul>
       </article>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============
+       القسم فارغ عمداً. لإضافة مشروع: احذف <p class="proj-empty"> ثم انسخ القالب التالي
+       داخل <div class="proj-grid"> لكل مشروع، واملأ الاسم والتفاصيل والوصف:
+
+       <article class="proj">
+         <h3 data-ar="اسم المشروع" data-en="Project name">اسم المشروع</h3>
+         <div class="meta" data-ar="الموقع — السنة" data-en="Location — year">الموقع — السنة</div>
+         <p data-ar="وصف مختصر لنطاق العمل المنفَّذ." data-en="A short description of the delivered scope.">وصف مختصر لنطاق العمل المنفَّذ.</p>
+       </article>
+  ============================================ -->
+  <section class="projects" id="projects">
+    <div class="wrap">
+      <h2 data-ar="الأعمال المنجزة" data-en="Completed projects">الأعمال المنجزة</h2>
+      <p class="sub" data-ar="[نص مؤقت] يُعرض هنا سجل المشاريع المنفَّذة." data-en="[Placeholder] A record of delivered projects will be listed here.">[نص مؤقت] يُعرض هنا سجل المشاريع المنفَّذة.</p>
+      <div class="proj-grid">
+      </div>
+      <p class="proj-empty" data-ar="[نص مؤقت] لم تُضف المشاريع بعد." data-en="[Placeholder] No projects have been added yet.">[نص مؤقت] لم تُضف المشاريع بعد.</p>
     </div>
   </section>
 
@@ -475,6 +601,7 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
 (function(){
   var btn = document.getElementById('langBtn');
   var nodes = document.querySelectorAll('[data-ar]');
+  var labelled = document.querySelectorAll('[data-ar-label]');
   var titles = {ar:'Albahrany — التبريد المركزي والمقاولات الإنشائية',
                 en:'Albahrany — Central Cooling & General Contracting'};
   function setLang(lang){
@@ -482,12 +609,30 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
     document.documentElement.dir = (lang==='ar') ? 'rtl' : 'ltr';
     document.title = titles[lang];
     for (var i=0;i<nodes.length;i++){ nodes[i].textContent = nodes[i].getAttribute('data-'+lang); }
+    for (var j=0;j<labelled.length;j++){ labelled[j].setAttribute('aria-label', labelled[j].getAttribute('data-'+lang+'-label')); }
     btn.textContent = (lang==='ar') ? 'English' : 'عربي';
   }
   btn.addEventListener('click', function(){
     setLang(document.documentElement.lang==='ar' ? 'en' : 'ar');
   });
   setLang('ar');
+
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  function closeMenu(){
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+  }
+  menuBtn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenu();
+  });
 })();
 </script>
 </body>
