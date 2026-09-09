@@ -64,12 +64,10 @@ section[id],main[id]{scroll-margin-top:74px}
 /* ---------- about ---------- */
 .about{padding-block:56px}
 .about h2{font-size:28px;margin-bottom:8px}
-.about .sub{color:var(--muted);max-width:62ch}
-.facts{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;max-width:620px}
-.fact{padding-block:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.fact + .fact{border-inline-start:1px solid var(--line);padding-inline-start:26px}
-.fact .k{display:block;font-size:14px;color:var(--muted)}
-.fact .v{display:block;font-size:26px;font-weight:700;margin-top:4px}
+.about .sub{margin-top:18px;font-size:17.5px;color:var(--muted);max-width:64ch}
+.about .body{margin-top:18px;color:var(--muted);max-width:64ch}
+.about .closing{margin-top:26px;padding-inline-start:16px;border-inline-start:3px solid var(--chill);
+  color:var(--steel-2);font-weight:600;max-width:62ch}
 
 /* ---------- projects ---------- */
 .projects{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:56px}
@@ -212,8 +210,6 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   .mark span{display:none}
   .lang{padding:6px 11px;font-size:13px}
   .icon-btn{width:34px;height:34px}
-  .facts{grid-template-columns:1fr}
-  .fact + .fact{border-top:none;border-inline-start:none;padding-inline-start:0}
   .proj-grid{grid-template-columns:1fr}
   .hero{padding-block:38px 30px}
   .hero h1{max-width:none}
@@ -318,24 +314,12 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
     </div>
   </section>
 
-  <!-- ============ ABOUT ============
-       نصوص مؤقتة — استبدل قيمة data-ar وdata-en والنص الظاهر بين الوسمين بالمعلومات الحقيقية:
-       النبذة، سنة التأسيس، وحجم الكادر الفني.
-  ============================================ -->
   <section class="about" id="about">
     <div class="wrap">
       <h2 data-ar="من نحن" data-en="About us">من نحن</h2>
-      <p class="sub" data-ar="[نص مؤقت] نبذة تعريفية عن شركة البحراني — يُكتب هنا تعريف الشركة ومجال عملها وخبرتها." data-en="[Placeholder] A short introduction to Albahrany — company background, field of work and experience goes here.">[نص مؤقت] نبذة تعريفية عن شركة البحراني — يُكتب هنا تعريف الشركة ومجال عملها وخبرتها.</p>
-      <div class="facts">
-        <div class="fact">
-          <span class="k" data-ar="سنة التأسيس" data-en="Established">سنة التأسيس</span>
-          <span class="v" data-ar="—" data-en="—">—</span>
-        </div>
-        <div class="fact">
-          <span class="k" data-ar="الكادر الفني" data-en="Technical staff">الكادر الفني</span>
-          <span class="v" data-ar="—" data-en="—">—</span>
-        </div>
-      </div>
+      <p class="sub" data-ar="تأسست مجموعة البحراني عام 2002، في سنوات كان فيها بناء العراق يبدأ من جديد. منذ ذلك الحين ونحن نعمل في مجال واحد: أنظمة التبريد والتكييف المركزي HVAC وأنظمة VRF وVRV، والأعمال الميكانيكية المرتبطة بها." data-en="Albahrany Group was founded in 2002, in the years when Iraq was beginning to rebuild. We have worked in one field ever since: central cooling and air-conditioning systems (HVAC), VRF and VRV systems, and the mechanical works that go with them.">تأسست مجموعة البحراني عام 2002، في سنوات كان فيها بناء العراق يبدأ من جديد. منذ ذلك الحين ونحن نعمل في مجال واحد: أنظمة التبريد والتكييف المركزي HVAC وأنظمة VRF وVRV، والأعمال الميكانيكية المرتبطة بها.</p>
+      <p class="body" data-ar="على مدى أكثر من عشرين عاماً نفّذنا مشاريع للقطاعات الحكومية والخاصة والمختلطة في مختلف محافظات العراق — مستشفيات ومخازن أدوية ووزارات وجامعات ومنشآت عامة. نتولى المشروع من التصميم والتجهيز إلى التركيب والتشغيل، بمعدات من علامات تجارية عالمية معتمدة، ولا ينتهي دورنا عند التسليم: الصيانة والضمان وخدمات ما بعد الإنجاز جزء أساسي من عملنا." data-en="Over more than twenty years we have delivered projects for the government, private and mixed sectors across Iraq — hospitals, pharmaceutical warehouses, ministries, universities and public facilities. We take a project from design and supply through installation and commissioning, using equipment from established international manufacturers. Our role does not end at handover: maintenance, warranty and after-completion service are a core part of what we do.">على مدى أكثر من عشرين عاماً نفّذنا مشاريع للقطاعات الحكومية والخاصة والمختلطة في مختلف محافظات العراق — مستشفيات ومخازن أدوية ووزارات وجامعات ومنشآت عامة. نتولى المشروع من التصميم والتجهيز إلى التركيب والتشغيل، بمعدات من علامات تجارية عالمية معتمدة، ولا ينتهي دورنا عند التسليم: الصيانة والضمان وخدمات ما بعد الإنجاز جزء أساسي من عملنا.</p>
+      <p class="closing" data-ar="نؤمن أن كل منظومة تبريد نركّبها في مستشفى أو مدرسة أو دائرة حكومية هي إسهام صغير في النهوض بواقع بلدنا. هذا ما يجعلنا نقيس نجاحنا بعمر المنظومات التي نتركها خلفنا، لا بعدد العقود التي نوقّعها." data-en="We believe every cooling system we install in a hospital, a school or a government building is a small contribution to rebuilding our country. That is why we measure our success by the working life of the systems we leave behind, not by the number of contracts we sign.">نؤمن أن كل منظومة تبريد نركّبها في مستشفى أو مدرسة أو دائرة حكومية هي إسهام صغير في النهوض بواقع بلدنا. هذا ما يجعلنا نقيس نجاحنا بعمر المنظومات التي نتركها خلفنا، لا بعدد العقود التي نوقّعها.</p>
     </div>
   </section>
 
