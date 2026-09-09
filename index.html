@@ -74,12 +74,10 @@ section[id],main[id]{scroll-margin-top:74px}
 /* ---------- projects ---------- */
 .projects{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:56px}
 .projects h2{font-size:28px;margin-bottom:8px}
-.projects .sub{color:var(--muted);max-width:64ch}
-.tally{margin-top:30px;margin-bottom:42px;padding-block:24px;
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tally-v{display:block;font-size:clamp(27px,4.6vw,40px);font-weight:700;letter-spacing:-0.015em}
-.tally-k{display:block;margin-top:6px;font-size:16px;color:var(--muted)}
+.projects .sub{color:var(--muted);max-width:64ch;margin-bottom:38px}
 .proj-group + .proj-group{margin-top:40px}
+.proj-more{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:clamp(17px,2.4vw,20px);font-weight:600;color:var(--steel-2);max-width:60ch}
 .group-title{font-size:18px;margin-bottom:18px;padding-inline-start:13px;
   border-inline-start:3px solid var(--chill)}
 .group-gov .group-title{border-inline-start-color:var(--steel-2)}
@@ -397,8 +395,7 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   </section>
 
   <!-- ============ PROJECTS ============
-       لإضافة مشروع: انسخ القالب التالي داخل <div class="proj-grid"> للمجموعة المناسبة،
-       وحدّث إجمالي السعة وعدد المشاريع في <div class="tally"> أعلى القسم.
+       لإضافة مشروع: انسخ القالب التالي داخل <div class="proj-grid"> للمجموعة المناسبة.
 
        <article class="proj">
          <div class="cap"><span class="cap-n">000</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
@@ -409,13 +406,8 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   ============================================ -->
   <section class="projects" id="projects">
     <div class="wrap">
-      <h2 data-ar="الأعمال المنجزة" data-en="Completed projects">الأعمال المنجزة</h2>
+      <h2 data-ar="بعض الأعمال المنجزة" data-en="Selected Projects">بعض الأعمال المنجزة</h2>
       <p class="sub" data-ar="المنشآت الصحية ومخازن الأدوية تتطلب أنظمة تبريد خاصة — غرف عمليات ومناطق معقّمة وتخزين دوائي بحرارة مضبوطة." data-en="Healthcare facilities and pharmaceutical warehouses require dedicated cooling systems — operating theatres, sterile zones and temperature-controlled drug storage.">المنشآت الصحية ومخازن الأدوية تتطلب أنظمة تبريد خاصة — غرف عمليات ومناطق معقّمة وتخزين دوائي بحرارة مضبوطة.</p>
-
-      <div class="tally">
-        <span class="tally-v" data-ar="أكثر من 11,000 طن تبريد" data-en="More than 11,000 TR of cooling">أكثر من 11,000 طن تبريد</span>
-        <span class="tally-k" data-ar="عبر 11 مشروعاً منفَّذاً" data-en="across 11 delivered projects">عبر 11 مشروعاً منفَّذاً</span>
-      </div>
 
       <div class="proj-group group-health">
         <h3 class="group-title" data-ar="المنشآت الصحية والدوائية" data-en="Healthcare and pharmaceutical facilities">المنشآت الصحية والدوائية</h3>
@@ -500,6 +492,8 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
           </article>
         </div>
       </div>
+
+      <p class="proj-more" data-ar="وغيرها عشرات المشاريع في القطاع الخاص والمختلط في أنحاء العراق." data-en="And dozens of further projects across the private and mixed sectors throughout Iraq.">وغيرها عشرات المشاريع في القطاع الخاص والمختلط في أنحاء العراق.</p>
     </div>
   </section>
 
