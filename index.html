@@ -125,12 +125,9 @@ section[id],main[id]{scroll-margin-top:100px}
 .since{margin-top:18px;padding-inline-start:14px;border-inline-start:3px solid var(--chill);
   font-size:15.5px;font-weight:600;color:var(--steel-2)}
 .lede{margin-top:20px;font-size:18px;color:var(--muted);max-width:46ch}
-.actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.btn{display:inline-block;padding:16px 32px;font-weight:700;font-size:17px;line-height:1.2;
-  border-radius:2px;border:1px solid var(--steel)}
-.btn-primary{background:var(--steel);color:#fff;letter-spacing:0.01em}
-.btn-primary:hover{background:var(--steel-2);border-color:var(--steel-2)}
 
+.band{margin:0;border-bottom:1px solid var(--line)}
+.band img{display:block;width:100%;height:clamp(230px,30vw,400px);object-fit:cover;object-position:center}
 .agency{background:var(--steel);color:var(--concrete)}
 .agency .wrap{padding-block:22px}
 
@@ -236,8 +233,6 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   .scope{grid-template-columns:1fr}
   .prods{grid-template-columns:1fr 1fr;gap:30px 22px}
   :root{--sec:48px}
-  .actions{flex-direction:column;gap:10px}
-  .btn{width:100%;text-align:center}
   /* readable small text on phones */
   .cell p,.svc p,.scope li,.partner .desc,.points p,.about .sub,.projects .sub,
   .partners .sub,.offer .sub,.contact .intro,.products .sub{font-size:16px}
@@ -304,9 +299,6 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
         </h1>
         <p class="since" data-ar="منذ 2002 — أكثر من عشرين عاماً في السوق العراقي" data-en="Since 2002 — over twenty years in the Iraqi market">منذ 2002 — أكثر من عشرين عاماً في السوق العراقي</p>
         <p class="lede" data-ar="ننفّذ مشاريع التكييف المركزي والأعمال الإنشائية في العراق — من الدراسة والتصميم إلى التركيب والصيانة." data-en="We deliver central air-conditioning and construction projects across Iraq — from study and design through installation and maintenance.">ننفّذ مشاريع التكييف المركزي والأعمال الإنشائية في العراق — من الدراسة والتصميم إلى التركيب والصيانة.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="tel:+9647734114077" data-ar="اتصل بنا" data-en="Call us">اتصل بنا</a>
-        </div>
       </div>
     </div>
   </section>
@@ -316,6 +308,11 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
       <p data-ar="وكالة حصرية في العراق لشركة Euroclima — إيطاليا والنمسا" data-en="Exclusive agency in Iraq for Euroclima — Italy and Austria">وكالة حصرية في العراق لشركة Euroclima — إيطاليا والنمسا</p>
     </div>
   </section>
+
+  <figure class="band">
+    <img src="images/band-chiller-room.jpg" width="1600" height="892" loading="lazy"
+         alt="غرفة شلرات في أحد مواقع العمل" data-ar-alt="غرفة شلرات في أحد مواقع العمل" data-en-alt="A chiller room on one of our sites">
+  </figure>
 
   <section class="about" id="about">
     <div class="wrap">
