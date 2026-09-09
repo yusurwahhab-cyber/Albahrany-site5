@@ -15,6 +15,7 @@
 :root{
   --concrete:#E9E7E2; --concrete-2:#DFDCD5; --steel:#0C2B45; --steel-2:#2A5474;
   --chill:#1B6A93; --ochre:#AC6F1B; --line:#C7C3BA; --muted:#54636D;
+  --sec:64px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -30,43 +31,58 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:28px}
 
 .topbar{border-bottom:1px solid var(--line);background:var(--concrete);position:sticky;top:0;z-index:10}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:66px}
+.topbar .wrap{max-width:1200px;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px 32px;min-height:92px}
 .mark{display:block;flex-shrink:0}
-.mark img{height:40px;width:auto;display:block}
+.mark img{height:50px;width:auto;display:block}
 .foot-mark{height:32px;width:auto;display:block;margin-bottom:16px}
 .lang{font:inherit;font-size:14px;font-weight:600;background:none;border:1px solid var(--steel);
-  color:var(--steel);padding:6px 16px;cursor:pointer;border-radius:2px}
+  color:var(--steel);min-height:44px;padding:6px 18px;cursor:pointer;border-radius:2px}
 .lang:hover{background:var(--steel);color:var(--concrete)}
-section[id],main[id]{scroll-margin-top:74px}
+section[id],main[id]{scroll-margin-top:100px}
 
 /* ---------- navigation ---------- */
-.nav-list{display:flex;align-items:center;gap:22px}
-.nav-list a{font-size:15px;font-weight:600;color:var(--muted);padding-block:4px;
+.nav-list{display:flex;align-items:center;gap:20px}
+.nav-list a{font-size:15.5px;font-weight:600;color:var(--muted);padding-block:8px;
   white-space:nowrap;border-bottom:2px solid transparent}
 .nav-list a:hover{color:var(--steel);border-bottom-color:var(--chill)}
+.nav-call{display:none}
 .bar-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;
   font:inherit;background:none;border:1px solid var(--steel);border-radius:2px;color:var(--steel);cursor:pointer}
 .icon-btn:hover{background:var(--steel);color:var(--concrete)}
-.icon-btn svg{width:19px;height:19px;display:block}
+.icon-btn svg{width:20px;height:20px;display:block}
 .menu-btn{display:none}
 .menu-btn .ico-close{display:none}
 .menu-btn[aria-expanded="true"] .ico-open{display:none}
 .menu-btn[aria-expanded="true"] .ico-close{display:block}
-@media (max-width:1080px){
+@media (max-width:1279px){
+  .topbar .wrap{justify-content:center;gap:0;padding-block:12px;min-height:0}
+  .mark img{height:40px}
+  .mark{width:100%;display:flex;justify-content:center}
+  .bar-actions{margin-top:12px}
   .menu-btn{display:inline-flex}
-  .nav{position:absolute;inset-inline:0;top:66px;display:none;background:var(--concrete);
-    border-bottom:1px solid var(--line);max-height:calc(100vh - 66px);overflow-y:auto}
+  .nav{position:absolute;inset-inline:0;top:100%;display:none;background:#F3F1ED;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    box-shadow:0 10px 24px rgba(12,43,69,0.08);max-height:72vh;overflow-y:auto}
   .nav.open{display:block}
   .nav-list{flex-direction:column;align-items:stretch;gap:0;
     max-width:1080px;margin-inline:auto;padding-inline:28px}
   .nav-list li + li{border-top:1px solid var(--line)}
-  .nav-list a{display:block;padding-block:15px;font-size:16.5px;color:var(--steel);border-bottom:none}
-  .nav-list a:hover{color:var(--chill)}
+  .nav-list a{display:block;padding-block:19px;font-size:18px;font-weight:600;
+    color:var(--steel);border-bottom:none;
+    padding-inline-start:14px;border-inline-start:3px solid transparent;transition:background-color .12s}
+  .nav-list a:hover,.nav-list a:active,.nav-list a:focus-visible{
+    background:var(--concrete-2);border-inline-start-color:var(--chill);color:var(--steel)}
+  .nav-call{display:block;border-top:1px solid var(--line);background:rgba(12,43,69,0.035)}
+  .nav-call a{display:flex;align-items:baseline;gap:12px;padding-block:15px;padding-inline-start:14px;
+    border-inline-start:3px solid transparent;font-size:16.5px;font-weight:700;color:var(--chill)}
+  .nav-call a:hover,.nav-call a:active{background:var(--concrete-2);border-inline-start-color:var(--chill)}
+  .nav-call .cc{font-size:14px;font-weight:600;color:var(--muted);min-width:56px}
 }
 
 /* ---------- about ---------- */
-.about{padding-block:56px}
+.about{padding-block:var(--sec)}
 .about h2{font-size:28px;margin-bottom:8px}
 .about .sub{margin-top:18px;font-size:17.5px;color:var(--muted);max-width:64ch}
 .about .body{margin-top:18px;color:var(--muted);max-width:64ch}
@@ -74,7 +90,7 @@ section[id],main[id]{scroll-margin-top:74px}
   color:var(--steel-2);font-weight:600;max-width:62ch}
 
 /* ---------- projects ---------- */
-.projects{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:56px}
+.projects{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:var(--sec)}
 .projects h2{font-size:28px;margin-bottom:8px}
 .projects .sub{color:var(--muted);max-width:64ch;margin-bottom:38px}
 .proj-group + .proj-group{margin-top:40px}
@@ -102,12 +118,16 @@ section[id],main[id]{scroll-margin-top:74px}
 .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center}
 .hero h1{font-size:clamp(30px,5vw,50px);letter-spacing:-0.015em;max-width:14ch}
 .hero h1 .l2{display:block;color:var(--steel-2)}
-.lede{margin-top:22px;font-size:18px;color:var(--muted);max-width:46ch}
-.actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
-.btn{display:inline-block;padding:13px 28px;font-weight:600;font-size:16px;border-radius:2px;border:1px solid var(--steel)}
-.btn-primary{background:var(--steel);color:var(--concrete)}
-.btn-primary:hover{background:var(--steel-2)}
-.btn-ghost:hover{background:var(--concrete-2)}
+.since{margin-top:18px;padding-inline-start:14px;border-inline-start:3px solid var(--chill);
+  font-size:15.5px;font-weight:600;color:var(--steel-2)}
+.lede{margin-top:20px;font-size:18px;color:var(--muted);max-width:46ch}
+.actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 32px;font-weight:700;font-size:17px;line-height:1.2;
+  border-radius:2px;border:1px solid var(--steel)}
+.btn-primary{background:var(--steel);color:#fff;letter-spacing:0.01em}
+.btn-primary:hover{background:var(--steel-2);border-color:var(--steel-2)}
+.btn-ghost{padding:16px 26px;font-weight:600;color:var(--steel-2);border-color:var(--line);background:var(--concrete-2)}
+.btn-ghost:hover{border-color:var(--steel-2);background:var(--concrete)}
 .hero-art{width:100%}
 .hero-art svg{width:100%;height:auto;display:block}
 .flow{stroke:var(--chill);stroke-width:2;fill:none;stroke-dasharray:7 11}
@@ -119,7 +139,7 @@ section[id],main[id]{scroll-margin-top:74px}
 .agency{background:var(--steel);color:var(--concrete)}
 .agency .wrap{padding-block:22px}
 
-.offer{padding-block:62px}
+.offer{padding-block:var(--sec)}
 .offer h2{font-size:28px;margin-bottom:8px}
 .offer .sub{color:var(--muted);margin-bottom:34px;max-width:58ch}
 .grid4{display:grid;grid-template-columns:1fr 1fr}
@@ -129,8 +149,9 @@ section[id],main[id]{scroll-margin-top:74px}
 .cell h3{font-size:19px;margin-bottom:8px}
 .cell p{font-size:15.5px;color:var(--muted)}
 
-.services{padding-block:10px 62px}
+
 .services h2{font-size:28px;margin-bottom:34px}
+.fields{margin-top:48px}
 .svc{padding-inline-start:26px;border-inline-start:3px solid var(--line);padding-block:6px}
 .svc + .svc{margin-top:44px}
 .svc-cool{border-inline-start-color:var(--chill)}
@@ -142,7 +163,7 @@ section[id],main[id]{scroll-margin-top:74px}
 .scope li::before{content:"";position:absolute;inset-inline-start:0;top:12px;width:11px;height:1px;background:var(--steel-2)}
 
 /* ---------- products ---------- */
-.products{background:var(--steel);color:var(--concrete);padding-block:66px}
+.products{background:var(--steel);color:var(--concrete);padding-block:var(--sec)}
 .products h2{font-size:28px;color:#fff;margin-bottom:8px}
 .products .sub{color:#9FB4BE;margin-bottom:46px;max-width:60ch}
 .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:46px 26px}
@@ -151,7 +172,7 @@ section[id],main[id]{scroll-margin-top:74px}
 .prod h3{font-size:16.5px;color:#fff;margin-bottom:7px}
 .prod p{font-size:14px;color:#8FA6B1;line-height:1.55;max-width:24ch;margin-inline:auto}
 
-.partners{padding-block:58px}
+.partners{padding-block:var(--sec)}
 .partners h2{font-size:28px;margin-bottom:8px}
 .partners .sub{color:var(--muted);margin-bottom:34px;max-width:64ch}
 .rel-group + .rel-group{margin-top:42px}
@@ -175,13 +196,13 @@ section[id],main[id]{scroll-margin-top:74px}
 .rel-supply{color:var(--muted);padding-inline-start:12px;border-inline-start:3px solid var(--line)}
 .partner .desc{margin-top:14px;font-size:15.5px;color:var(--muted);max-width:56ch}
 
-.approach{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:56px}
+.approach{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:var(--sec)}
 .approach h2{font-size:28px;margin-bottom:30px}
 .points{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
 .points h3{font-size:17.5px;margin-bottom:8px}
 .points p{font-size:15.5px;color:var(--muted)}
 
-.contact{background:var(--steel);color:var(--concrete);padding-block:60px}
+.contact{background:var(--steel);color:var(--concrete);padding-block:var(--sec)}
 .contact-mark{height:34px;width:auto;display:block;margin-bottom:24px}
 .contact h2{font-size:28px;color:#fff}
 .contact .intro{margin-top:12px;color:#9FB4BE;max-width:48ch}
@@ -201,23 +222,22 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   .proj-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:860px){
-  .hero-grid{grid-template-columns:1fr;gap:34px}
-  .hero-art{max-width:400px;margin-inline:auto}
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  .hero-art{max-width:360px;margin-inline:auto}
   .points{grid-template-columns:1fr;gap:24px}
   .partner{grid-template-columns:1fr;gap:22px}
   .pfig{max-width:340px}
 }
 @media (max-width:560px){
-  body{font-size:16px}
+  body{font-size:16.5px}
   .wrap{padding-inline:20px}
   .nav-list{padding-inline:20px}
-  .mark img{height:26px}
-  .lang{padding:6px 11px;font-size:13px}
-  .icon-btn{width:34px;height:34px}
-  .foot-mark{height:26px}
-  .contact-mark{height:28px}
+  .mark img{height:36px}
+  .lang{padding:6px 14px;font-size:14px}
+  .foot-mark{height:28px}
+  .contact-mark{height:30px}
   .proj-grid{grid-template-columns:1fr}
-  .hero{padding-block:38px 30px}
+  .hero{padding-block:34px 28px}
   .hero h1{max-width:none}
   .grid4{grid-template-columns:1fr}
   .cell{padding:22px 0}
@@ -226,15 +246,22 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   .cell:last-child{border-bottom:1px solid var(--line)}
   .scope{grid-template-columns:1fr}
   .prods{grid-template-columns:1fr 1fr;gap:30px 22px}
-  .offer,.services,.products,.partners,.approach,.contact,.about,.projects{padding-block:44px}
-  .btn{flex:1;text-align:center}
+  :root{--sec:48px}
+  .actions{flex-direction:column;gap:10px}
+  .btn{width:100%;text-align:center}
+  /* readable small text on phones */
+  .cell p,.svc p,.scope li,.partner .desc,.points p,.about .sub,.projects .sub,
+  .partners .sub,.offer .sub,.contact .intro,.products .sub{font-size:16px}
+  .prod p,.proj .meta,.proj .with,.origin,.rel,.row .k,footer{font-size:15px}
+  .row{padding-block:14px;gap:12px}
+  .row .k{min-width:62px}
+  .row a.v{display:inline-block;padding-block:8px}
+  .row a.v[href^="mailto"]{font-size:17px}
+  .proj h3{font-size:18px}
 }
 @media (max-width:400px){
-  .topbar .wrap{gap:12px}
-  .mark img{height:22px}
-  .bar-actions{gap:6px}
-  .lang{padding:6px 8px}
-  .icon-btn{width:32px;height:32px}
+  .bar-actions{gap:8px}
+  .lang{padding:6px 12px}
 }
 </style>
 </head>
@@ -247,16 +274,19 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
     <nav class="nav" id="nav" data-ar-label="قائمة الأقسام" data-en-label="Section navigation" aria-label="قائمة الأقسام">
       <ul class="nav-list">
         <li><a href="#about" data-ar="من نحن" data-en="About">من نحن</a></li>
-        <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
         <li><a href="#projects" data-ar="الأعمال المنجزة" data-en="Projects">الأعمال المنجزة</a></li>
+        <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
         <li><a href="#products" data-ar="المنتجات" data-en="Products">المنتجات</a></li>
         <li><a href="#partners" data-ar="الشراكات" data-en="Partnerships">الشراكات</a></li>
         <li><a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+        <li class="nav-call"><a href="tel:+9647734114077"><span class="cc" data-ar="العراق" data-en="Iraq">العراق</span><span dir="ltr">+964 773 411 4077</span></a></li>
+        <li class="nav-call"><a href="tel:+32492409022"><span class="cc" data-ar="بلجيكا" data-en="Belgium">بلجيكا</span><span dir="ltr">+32 492 409 022</span></a></li>
+        <li class="nav-call"><a href="tel:+905346581577"><span class="cc" data-ar="تركيا" data-en="Türkiye">تركيا</span><span dir="ltr">+90 534 658 1577</span></a></li>
       </ul>
     </nav>
 
     <div class="bar-actions">
-      <a class="icon-btn" href="tel:+9647702394602" data-ar-label="اتصل بنا" data-en-label="Call us" aria-label="اتصل بنا">
+      <a class="icon-btn" href="tel:+9647734114077" data-ar-label="اتصل بنا" data-en-label="Call us" aria-label="اتصل بنا">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M6.4 3.4h3.1l1.5 3.9-2 1.4a12.4 12.4 0 0 0 6.3 6.3l1.4-2 3.9 1.5v3.1a2 2 0 0 1-2.2 2A17.4 17.4 0 0 1 4.4 5.6a2 2 0 0 1 2-2.2z"/>
@@ -283,14 +313,15 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
           <span data-ar="أنظمة التبريد المركزي" data-en="Central cooling systems">أنظمة التبريد المركزي</span>
           <span class="l2" data-ar="والمقاولات الإنشائية" data-en="and general contracting">والمقاولات الإنشائية</span>
         </h1>
+        <p class="since" data-ar="منذ 2002 — أكثر من عشرين عاماً في السوق العراقي" data-en="Since 2002 — over twenty years in the Iraqi market">منذ 2002 — أكثر من عشرين عاماً في السوق العراقي</p>
         <p class="lede" data-ar="ننفّذ مشاريع التكييف المركزي والأعمال الإنشائية في العراق — من الدراسة والتصميم إلى التركيب والصيانة." data-en="We deliver central air-conditioning and construction projects across Iraq — from study and design through installation and maintenance.">ننفّذ مشاريع التكييف المركزي والأعمال الإنشائية في العراق — من الدراسة والتصميم إلى التركيب والصيانة.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="tel:+9647702394602" data-ar="اتصل بنا" data-en="Call us">اتصل بنا</a>
+          <a class="btn btn-primary" href="tel:+9647734114077" data-ar="اتصل بنا" data-en="Call us">اتصل بنا</a>
           <a class="btn btn-ghost" href="#contact" data-ar="معلومات التواصل" data-en="Contact details">معلومات التواصل</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 72 400 350" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" stroke="var(--steel-2)" stroke-width="1.6">
             <rect x="96" y="84" width="70" height="38"/><rect x="186" y="84" width="70" height="38"/>
             <circle cx="118" cy="103" r="10.5"/><circle cx="146" cy="103" r="10.5"/>
@@ -331,61 +362,6 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
       <p class="sub" data-ar="تأسست مجموعة البحراني عام 2002، في سنوات كان فيها بناء العراق يبدأ من جديد. منذ ذلك الحين ونحن نعمل في مجال واحد: أنظمة التبريد والتكييف المركزي HVAC وأنظمة VRF وVRV، والأعمال الميكانيكية المرتبطة بها." data-en="Albahrany Group was founded in 2002, in the years when Iraq was beginning to rebuild. We have worked in one field ever since: central cooling and air-conditioning systems (HVAC), VRF and VRV systems, and the mechanical works that go with them.">تأسست مجموعة البحراني عام 2002، في سنوات كان فيها بناء العراق يبدأ من جديد. منذ ذلك الحين ونحن نعمل في مجال واحد: أنظمة التبريد والتكييف المركزي HVAC وأنظمة VRF وVRV، والأعمال الميكانيكية المرتبطة بها.</p>
       <p class="body" data-ar="على مدى أكثر من عشرين عاماً نفّذنا مشاريع للقطاعات الحكومية والخاصة والمختلطة في مختلف محافظات العراق — مستشفيات ومخازن أدوية ووزارات وجامعات ومنشآت عامة. نتولى المشروع من التصميم والتجهيز إلى التركيب والتشغيل، بمعدات من علامات تجارية عالمية معتمدة، ولا ينتهي دورنا عند التسليم: الصيانة والضمان وخدمات ما بعد الإنجاز جزء أساسي من عملنا." data-en="Over more than twenty years we have delivered projects for the government, private and mixed sectors across Iraq — hospitals, pharmaceutical warehouses, ministries, universities and public facilities. We take a project from design and supply through installation and commissioning, using equipment from established international manufacturers. Our role does not end at handover: maintenance, warranty and after-completion service are a core part of what we do.">على مدى أكثر من عشرين عاماً نفّذنا مشاريع للقطاعات الحكومية والخاصة والمختلطة في مختلف محافظات العراق — مستشفيات ومخازن أدوية ووزارات وجامعات ومنشآت عامة. نتولى المشروع من التصميم والتجهيز إلى التركيب والتشغيل، بمعدات من علامات تجارية عالمية معتمدة، ولا ينتهي دورنا عند التسليم: الصيانة والضمان وخدمات ما بعد الإنجاز جزء أساسي من عملنا.</p>
       <p class="closing" data-ar="نؤمن أن كل منظومة تبريد نركّبها في مستشفى أو مدرسة أو دائرة حكومية هي إسهام صغير في النهوض بواقع بلدنا. هذا ما يجعلنا نقيس نجاحنا بعمر المنظومات التي نتركها خلفنا، لا بعدد العقود التي نوقّعها." data-en="We believe every cooling system we install in a hospital, a school or a government building is a small contribution to rebuilding our country. That is why we measure our success by the working life of the systems we leave behind, not by the number of contracts we sign.">نؤمن أن كل منظومة تبريد نركّبها في مستشفى أو مدرسة أو دائرة حكومية هي إسهام صغير في النهوض بواقع بلدنا. هذا ما يجعلنا نقيس نجاحنا بعمر المنظومات التي نتركها خلفنا، لا بعدد العقود التي نوقّعها.</p>
-    </div>
-  </section>
-
-  <section class="offer" id="services">
-    <div class="wrap">
-      <h2 data-ar="خدماتنا" data-en="Our services">خدماتنا</h2>
-      <p class="sub" data-ar="نرافق المشروع من أول فكرة حتى ما بعد التشغيل، أو ندخل بأي مرحلة تحتاجها." data-en="We stay with a project from first idea through operation — or step in at whichever stage you need.">نرافق المشروع من أول فكرة حتى ما بعد التشغيل، أو ندخل بأي مرحلة تحتاجها.</p>
-      <div class="grid4">
-        <div class="cell">
-          <h3 data-ar="استشارات هندسية" data-en="Engineering consultancy">استشارات هندسية</h3>
-          <p data-ar="مراجعة التصاميم واختيار المنظومة المناسبة للبناية وظروف التشغيل في العراق، مع تقدير الأحمال والكلف." data-en="Design review and selection of the right system for the building and for Iraqi operating conditions, with load and cost estimates.">مراجعة التصاميم واختيار المنظومة المناسبة للبناية وظروف التشغيل في العراق، مع تقدير الأحمال والكلف.</p>
-        </div>
-        <div class="cell">
-          <h3 data-ar="إعداد الدراسات" data-en="Studies and feasibility">إعداد الدراسات</h3>
-          <p data-ar="دراسات فنية واقتصادية، احتساب أحمال التبريد، مقارنة الحلول، ومخططات ومواصفات جاهزة للمناقصة." data-en="Technical and economic studies, cooling-load calculations, options comparison, and tender-ready drawings and specifications.">دراسات فنية واقتصادية، احتساب أحمال التبريد، مقارنة الحلول، ومخططات ومواصفات جاهزة للمناقصة.</p>
-        </div>
-        <div class="cell">
-          <h3 data-ar="تنفيذ المشاريع" data-en="Project execution">تنفيذ المشاريع</h3>
-          <p data-ar="تجهيز وتركيب وتشغيل بكوادر ومعدات الشركة، بجدول زمني وإشراف هندسي حتى التسليم." data-en="Supply, installation and commissioning with our own crews and equipment, on schedule and under engineering supervision.">تجهيز وتركيب وتشغيل بكوادر ومعدات الشركة، بجدول زمني وإشراف هندسي حتى التسليم.</p>
-        </div>
-        <div class="cell">
-          <h3 data-ar="الصيانة" data-en="Maintenance">الصيانة</h3>
-          <p data-ar="عقود صيانة دورية، صيانة طارئة، وتوفير قطع الغيار الأصلية من المصنع." data-en="Scheduled maintenance contracts, emergency call-outs, and original factory spare parts.">عقود صيانة دورية، صيانة طارئة، وتوفير قطع الغيار الأصلية من المصنع.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="services">
-    <div class="wrap">
-      <h2 data-ar="مجالات العمل" data-en="Fields of work">مجالات العمل</h2>
-      <article class="svc svc-cool">
-        <h3 data-ar="التبريد المركزي" data-en="Central cooling">التبريد المركزي</h3>
-        <p data-ar="أنظمة تكييف مركزي للأبنية السكنية والتجارية والمنشآت الحكومية والصحية." data-en="Central air-conditioning for residential, commercial, government and healthcare buildings.">أنظمة تكييف مركزي للأبنية السكنية والتجارية والمنشآت الحكومية والصحية.</p>
-        <ul class="scope">
-          <li data-ar="وحدات مناولة الهواء (AHU)" data-en="Air handling units (AHU)">وحدات مناولة الهواء (AHU)</li>
-          <li data-ar="الشلرات وأبراج التبريد" data-en="Chillers and cooling towers">الشلرات وأبراج التبريد</li>
-          <li data-ar="شبكات الدكت والعزل الحراري" data-en="Ductwork and thermal insulation">شبكات الدكت والعزل الحراري</li>
-          <li data-ar="غرف المكائن والأنظمة المائية" data-en="Plant rooms and chilled-water systems">غرف المكائن والأنظمة المائية</li>
-          <li data-ar="الفان كويل وأنظمة التوزيع" data-en="Fan coils and air distribution">الفان كويل وأنظمة التوزيع</li>
-          <li data-ar="التشغيل والفحص والتسليم" data-en="Commissioning, testing and handover">التشغيل والفحص والتسليم</li>
-        </ul>
-      </article>
-      <article class="svc svc-build">
-        <h3 data-ar="المقاولات الإنشائية العامة" data-en="General construction contracting">المقاولات الإنشائية العامة</h3>
-        <p data-ar="تنفيذ المشاريع الإنشائية بكوادر ومعدات الشركة وبإشراف هندسي على كل مرحلة." data-en="Construction projects delivered with our own crews and equipment, supervised at every stage.">تنفيذ المشاريع الإنشائية بكوادر ومعدات الشركة وبإشراف هندسي على كل مرحلة.</p>
-        <ul class="scope">
-          <li data-ar="الأبنية السكنية والتجارية" data-en="Residential and commercial buildings">الأبنية السكنية والتجارية</li>
-          <li data-ar="الأعمال الإنشائية والهيكلية" data-en="Structural and civil works">الأعمال الإنشائية والهيكلية</li>
-          <li data-ar="التشطيبات الداخلية والخارجية" data-en="Interior and exterior finishing">التشطيبات الداخلية والخارجية</li>
-          <li data-ar="أعمال البنى التحتية" data-en="Infrastructure works">أعمال البنى التحتية</li>
-          <li data-ar="الترميم وإعادة التأهيل" data-en="Renovation and rehabilitation">الترميم وإعادة التأهيل</li>
-          <li data-ar="إدارة المشاريع والإشراف" data-en="Project management and supervision">إدارة المشاريع والإشراف</li>
-        </ul>
-      </article>
     </div>
   </section>
 
@@ -489,6 +465,59 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
       </div>
 
       <p class="proj-more" data-ar="وغيرها عشرات المشاريع في القطاع الخاص والمختلط في أنحاء العراق." data-en="And dozens of further projects across the private and mixed sectors throughout Iraq.">وغيرها عشرات المشاريع في القطاع الخاص والمختلط في أنحاء العراق.</p>
+    </div>
+  </section>
+
+  <section class="offer" id="services">
+    <div class="wrap">
+      <h2 data-ar="خدماتنا" data-en="Our services">خدماتنا</h2>
+      <p class="sub" data-ar="نرافق المشروع من أول فكرة حتى ما بعد التشغيل، أو ندخل بأي مرحلة تحتاجها." data-en="We stay with a project from first idea through operation — or step in at whichever stage you need.">نرافق المشروع من أول فكرة حتى ما بعد التشغيل، أو ندخل بأي مرحلة تحتاجها.</p>
+      <div class="grid4">
+        <div class="cell">
+          <h3 data-ar="استشارات هندسية" data-en="Engineering consultancy">استشارات هندسية</h3>
+          <p data-ar="مراجعة التصاميم واختيار المنظومة المناسبة للبناية وظروف التشغيل في العراق، مع تقدير الأحمال والكلف." data-en="Design review and selection of the right system for the building and for Iraqi operating conditions, with load and cost estimates.">مراجعة التصاميم واختيار المنظومة المناسبة للبناية وظروف التشغيل في العراق، مع تقدير الأحمال والكلف.</p>
+        </div>
+        <div class="cell">
+          <h3 data-ar="إعداد الدراسات" data-en="Studies and feasibility">إعداد الدراسات</h3>
+          <p data-ar="دراسات فنية واقتصادية، احتساب أحمال التبريد، مقارنة الحلول، ومخططات ومواصفات جاهزة للمناقصة." data-en="Technical and economic studies, cooling-load calculations, options comparison, and tender-ready drawings and specifications.">دراسات فنية واقتصادية، احتساب أحمال التبريد، مقارنة الحلول، ومخططات ومواصفات جاهزة للمناقصة.</p>
+        </div>
+        <div class="cell">
+          <h3 data-ar="تنفيذ المشاريع" data-en="Project execution">تنفيذ المشاريع</h3>
+          <p data-ar="تجهيز وتركيب وتشغيل بكوادر ومعدات الشركة، بجدول زمني وإشراف هندسي حتى التسليم." data-en="Supply, installation and commissioning with our own crews and equipment, on schedule and under engineering supervision.">تجهيز وتركيب وتشغيل بكوادر ومعدات الشركة، بجدول زمني وإشراف هندسي حتى التسليم.</p>
+        </div>
+        <div class="cell">
+          <h3 data-ar="الصيانة" data-en="Maintenance">الصيانة</h3>
+          <p data-ar="عقود صيانة دورية، صيانة طارئة، وتوفير قطع الغيار الأصلية من المصنع." data-en="Scheduled maintenance contracts, emergency call-outs, and original factory spare parts.">عقود صيانة دورية، صيانة طارئة، وتوفير قطع الغيار الأصلية من المصنع.</p>
+        </div>
+      </div>
+
+      <div class="fields">
+        <h3 class="group-title" data-ar="مجالات العمل" data-en="Fields of work">مجالات العمل</h3>
+        <article class="svc svc-cool">
+          <h3 data-ar="التبريد المركزي" data-en="Central cooling">التبريد المركزي</h3>
+          <p data-ar="أنظمة تكييف مركزي للأبنية السكنية والتجارية والمنشآت الحكومية والصحية." data-en="Central air-conditioning for residential, commercial, government and healthcare buildings.">أنظمة تكييف مركزي للأبنية السكنية والتجارية والمنشآت الحكومية والصحية.</p>
+          <ul class="scope">
+            <li data-ar="وحدات مناولة الهواء (AHU)" data-en="Air handling units (AHU)">وحدات مناولة الهواء (AHU)</li>
+            <li data-ar="الشلرات وأبراج التبريد" data-en="Chillers and cooling towers">الشلرات وأبراج التبريد</li>
+            <li data-ar="شبكات الدكت والعزل الحراري" data-en="Ductwork and thermal insulation">شبكات الدكت والعزل الحراري</li>
+            <li data-ar="غرف المكائن والأنظمة المائية" data-en="Plant rooms and chilled-water systems">غرف المكائن والأنظمة المائية</li>
+            <li data-ar="الفان كويل وأنظمة التوزيع" data-en="Fan coils and air distribution">الفان كويل وأنظمة التوزيع</li>
+            <li data-ar="التشغيل والفحص والتسليم" data-en="Commissioning, testing and handover">التشغيل والفحص والتسليم</li>
+          </ul>
+        </article>
+        <article class="svc svc-build">
+          <h3 data-ar="المقاولات الإنشائية العامة" data-en="General construction contracting">المقاولات الإنشائية العامة</h3>
+          <p data-ar="تنفيذ المشاريع الإنشائية بكوادر ومعدات الشركة وبإشراف هندسي على كل مرحلة." data-en="Construction projects delivered with our own crews and equipment, supervised at every stage.">تنفيذ المشاريع الإنشائية بكوادر ومعدات الشركة وبإشراف هندسي على كل مرحلة.</p>
+          <ul class="scope">
+            <li data-ar="الأبنية السكنية والتجارية" data-en="Residential and commercial buildings">الأبنية السكنية والتجارية</li>
+            <li data-ar="الأعمال الإنشائية والهيكلية" data-en="Structural and civil works">الأعمال الإنشائية والهيكلية</li>
+            <li data-ar="التشطيبات الداخلية والخارجية" data-en="Interior and exterior finishing">التشطيبات الداخلية والخارجية</li>
+            <li data-ar="أعمال البنى التحتية" data-en="Infrastructure works">أعمال البنى التحتية</li>
+            <li data-ar="الترميم وإعادة التأهيل" data-en="Renovation and rehabilitation">الترميم وإعادة التأهيل</li>
+            <li data-ar="إدارة المشاريع والإشراف" data-en="Project management and supervision">إدارة المشاريع والإشراف</li>
+          </ul>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -674,16 +703,16 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
       <p class="intro" data-ar="أرسل لنا تفاصيل مشروعك أو اتصل مباشرة، ونرجع لك بالتقييم والعرض." data-en="Send us your project details or call directly, and we'll come back with an assessment and a quotation.">أرسل لنا تفاصيل مشروعك أو اتصل مباشرة، ونرجع لك بالتقييم والعرض.</p>
       <div class="rows">
         <div class="row">
-          <span class="k" data-ar="هاتف" data-en="Phone">هاتف</span>
-          <a class="v" href="tel:+9647702394602" dir="ltr">+964 770 239 4602</a>
+          <span class="k" data-ar="العراق" data-en="Iraq">العراق</span>
+          <a class="v" href="tel:+9647734114077" dir="ltr">+964 773 411 4077</a>
         </div>
         <div class="row">
-          <span class="k" data-ar="هاتف" data-en="Phone">هاتف</span>
-          <a class="v" href="tel:+905346581577" dir="ltr">+90 534 658 15 77</a>
+          <span class="k" data-ar="بلجيكا" data-en="Belgium">بلجيكا</span>
+          <a class="v" href="tel:+32492409022" dir="ltr">+32 492 409 022</a>
         </div>
         <div class="row">
-          <span class="k" data-ar="هاتف" data-en="Phone">هاتف</span>
-          <a class="v" href="tel:+32492409022" dir="ltr">+32 492 40 90 22</a>
+          <span class="k" data-ar="تركيا" data-en="Türkiye">تركيا</span>
+          <a class="v" href="tel:+905346581577" dir="ltr">+90 534 658 1577</a>
         </div>
         <div class="row">
           <span class="k" data-ar="البريد" data-en="Email">البريد</span>
@@ -694,7 +723,7 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
           <span class="v" data-ar="بغداد، العراق" data-en="Baghdad, Iraq">بغداد، العراق</span>
         </div>
       </div>
-      <a class="wa" href="https://wa.me/9647702394602" target="_blank" rel="noopener" data-ar="راسلنا على واتساب" data-en="Message us on WhatsApp">راسلنا على واتساب</a>
+      <a class="wa" href="https://wa.me/9647734114077" target="_blank" rel="noopener" data-ar="راسلنا على واتساب" data-en="Message us on WhatsApp">راسلنا على واتساب</a>
     </div>
   </section>
 
