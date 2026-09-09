@@ -74,14 +74,29 @@ section[id],main[id]{scroll-margin-top:74px}
 /* ---------- projects ---------- */
 .projects{background:var(--concrete-2);border-block:1px solid var(--line);padding-block:56px}
 .projects h2{font-size:28px;margin-bottom:8px}
-.projects .sub{color:var(--muted);max-width:58ch;margin-bottom:30px}
+.projects .sub{color:var(--muted);max-width:64ch}
+.tally{margin-top:30px;margin-bottom:42px;padding-block:24px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tally-v{display:block;font-size:clamp(27px,4.6vw,40px);font-weight:700;letter-spacing:-0.015em}
+.tally-k{display:block;margin-top:6px;font-size:16px;color:var(--muted)}
+.proj-group + .proj-group{margin-top:40px}
+.group-title{font-size:18px;margin-bottom:18px;padding-inline-start:13px;
+  border-inline-start:3px solid var(--chill)}
+.group-gov .group-title{border-inline-start-color:var(--steel-2)}
+.group-public .group-title{border-inline-start-color:var(--ochre)}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.proj{background:var(--concrete);border:1px solid var(--line);padding:22px 24px}
-.proj h3{font-size:18px}
+.proj{background:var(--concrete);border:1px solid var(--line);padding:22px 24px;
+  display:flex;flex-direction:column}
+.cap{display:flex;align-items:baseline;gap:6px;margin-bottom:13px;color:var(--chill)}
+.cap-n{font-size:27px;font-weight:700;letter-spacing:-0.01em;line-height:1}
+.cap-u{font-size:14px;font-weight:600}
+.group-gov .cap{color:var(--steel-2)}
+.group-public .cap{color:var(--ochre)}
+.proj h3{font-size:17px;line-height:1.35}
 .proj .meta{font-size:14px;color:var(--muted);margin-top:5px}
-.proj p{font-size:15px;color:var(--muted);margin-top:10px}
-.proj-empty{padding-block:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  color:var(--muted);font-size:15.5px}
+.proj .with{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--muted);line-height:1.5}
+.proj .meta{margin-bottom:13px}
 
 .hero{padding-block:56px 40px}
 .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center}
@@ -374,22 +389,109 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   </section>
 
   <!-- ============ PROJECTS ============
-       القسم فارغ عمداً. لإضافة مشروع: احذف <p class="proj-empty"> ثم انسخ القالب التالي
-       داخل <div class="proj-grid"> لكل مشروع، واملأ الاسم والتفاصيل والوصف:
+       لإضافة مشروع: انسخ القالب التالي داخل <div class="proj-grid"> للمجموعة المناسبة،
+       وحدّث إجمالي السعة وعدد المشاريع في <div class="tally"> أعلى القسم.
 
        <article class="proj">
+         <div class="cap"><span class="cap-n">000</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
          <h3 data-ar="اسم المشروع" data-en="Project name">اسم المشروع</h3>
-         <div class="meta" data-ar="الموقع — السنة" data-en="Location — year">الموقع — السنة</div>
-         <p data-ar="وصف مختصر لنطاق العمل المنفَّذ." data-en="A short description of the delivered scope.">وصف مختصر لنطاق العمل المنفَّذ.</p>
+         <div class="meta" data-ar="الموقع" data-en="Location">الموقع</div>
+         <div class="with" data-ar="جهة التنفيذ المشتركة" data-en="Delivered with">جهة التنفيذ المشتركة</div>
        </article>
   ============================================ -->
   <section class="projects" id="projects">
     <div class="wrap">
       <h2 data-ar="الأعمال المنجزة" data-en="Completed projects">الأعمال المنجزة</h2>
-      <p class="sub" data-ar="[نص مؤقت] يُعرض هنا سجل المشاريع المنفَّذة." data-en="[Placeholder] A record of delivered projects will be listed here.">[نص مؤقت] يُعرض هنا سجل المشاريع المنفَّذة.</p>
-      <div class="proj-grid">
+      <p class="sub" data-ar="المنشآت الصحية ومخازن الأدوية تتطلب أنظمة تبريد خاصة — غرف عمليات ومناطق معقّمة وتخزين دوائي بحرارة مضبوطة." data-en="Healthcare facilities and pharmaceutical warehouses require dedicated cooling systems — operating theatres, sterile zones and temperature-controlled drug storage.">المنشآت الصحية ومخازن الأدوية تتطلب أنظمة تبريد خاصة — غرف عمليات ومناطق معقّمة وتخزين دوائي بحرارة مضبوطة.</p>
+
+      <div class="tally">
+        <span class="tally-v" data-ar="أكثر من 11,000 طن تبريد" data-en="More than 11,000 TR of cooling">أكثر من 11,000 طن تبريد</span>
+        <span class="tally-k" data-ar="عبر 11 مشروعاً منفَّذاً" data-en="across 11 delivered projects">عبر 11 مشروعاً منفَّذاً</span>
       </div>
-      <p class="proj-empty" data-ar="[نص مؤقت] لم تُضف المشاريع بعد." data-en="[Placeholder] No projects have been added yet.">[نص مؤقت] لم تُضف المشاريع بعد.</p>
+
+      <div class="proj-group group-health">
+        <h3 class="group-title" data-ar="المنشآت الصحية والدوائية" data-en="Healthcare and pharmaceutical facilities">المنشآت الصحية والدوائية</h3>
+        <div class="proj-grid">
+          <article class="proj">
+            <div class="cap"><span class="cap-n">5,000</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="مستشفى الإمام الصادق (400 سرير)" data-en="Imam Al-Sadiq Hospital (400 beds)">مستشفى الإمام الصادق (400 سرير)</h3>
+            <div class="meta" data-ar="بابل" data-en="Babil">بابل</div>
+            <div class="with" data-ar="بالتعاون مع شركة أجارسن التركية" data-en="With Ejarsan, Türkiye">بالتعاون مع شركة أجارسن التركية</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">750</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="مستشفى الأمراض السرطانية" data-en="Oncology Hospital">مستشفى الأمراض السرطانية</h3>
+            <div class="meta" data-ar="بابل" data-en="Babil">بابل</div>
+            <div class="with" data-ar="بالتعاون مع شركة أجارسن التركية" data-en="With Ejarsan, Türkiye">بالتعاون مع شركة أجارسن التركية</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">750</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="مستشفى الأمراض السرطانية" data-en="Oncology Hospital">مستشفى الأمراض السرطانية</h3>
+            <div class="meta" data-ar="البصرة" data-en="Basra">البصرة</div>
+            <div class="with" data-ar="بالتعاون مع شركة أجارسن التركية" data-en="With Ejarsan, Türkiye">بالتعاون مع شركة أجارسن التركية</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">450</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="مخازن أدوية كيماديا" data-en="Kimadia Pharmaceutical Warehouses">مخازن أدوية كيماديا</h3>
+            <div class="meta" data-ar="حي الجامعة، بغداد" data-en="Baghdad">حي الجامعة، بغداد</div>
+            <div class="with" data-ar="مع شركة الشرق الأدنى للمقاولات العامة" data-en="With Near East General Contracting">مع شركة الشرق الأدنى للمقاولات العامة</div>
+          </article>
+        </div>
+      </div>
+
+      <div class="proj-group group-gov">
+        <h3 class="group-title" data-ar="المنشآت الحكومية والمؤسسية" data-en="Government and institutional facilities">المنشآت الحكومية والمؤسسية</h3>
+        <div class="proj-grid">
+          <article class="proj">
+            <div class="cap"><span class="cap-n">1,500</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="وزارة المالية" data-en="Ministry of Finance">وزارة المالية</h3>
+            <div class="meta" data-ar="الوزيرية، بغداد" data-en="Baghdad">الوزيرية، بغداد</div>
+            <div class="with" data-ar="مع شركة بالتيمور البلجيكية" data-en="With Baltimore Aircoil, Belgium">مع شركة بالتيمور البلجيكية</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">450</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="بيت الحكمة" data-en="Bayt Al-Hikma">بيت الحكمة</h3>
+            <div class="meta" data-ar="الميدان، بغداد" data-en="Baghdad">الميدان، بغداد</div>
+            <div class="with" data-ar="بإشراف مجلس الوزراء ووزارة الصناعة والمعادن" data-en="Under the Council of Ministers and the Ministry of Industry and Minerals">بإشراف مجلس الوزراء ووزارة الصناعة والمعادن</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">340</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="قناة الحضارة" data-en="Al-Hadhara TV">قناة الحضارة</h3>
+            <div class="meta" data-ar="الصالحية، بغداد" data-en="Baghdad">الصالحية، بغداد</div>
+            <div class="with" data-ar="مع شركة سنجار للمقاولات العامة" data-en="With Sinjar General Contracting">مع شركة سنجار للمقاولات العامة</div>
+          </article>
+        </div>
+      </div>
+
+      <div class="proj-group group-public">
+        <h3 class="group-title" data-ar="المنشآت العامة والتجارية" data-en="Public and commercial facilities">المنشآت العامة والتجارية</h3>
+        <div class="proj-grid">
+          <article class="proj">
+            <div class="cap"><span class="cap-n">600</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="مول الواحة" data-en="Al-Waha Mall">مول الواحة</h3>
+            <div class="meta" data-ar="الجادرية، بغداد" data-en="Baghdad">الجادرية، بغداد</div>
+            <div class="with" data-ar="بالشراكة مع شركة صروح سنجار" data-en="With Surooh Sinjar">بالشراكة مع شركة صروح سنجار</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">500</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="جامع أم القرى" data-en="Umm Al-Qura Mosque">جامع أم القرى</h3>
+            <div class="meta" data-ar="الغزالية، بغداد" data-en="Baghdad">الغزالية، بغداد</div>
+            <div class="with" data-ar="بالتعاون مع شركة الفرات" data-en="With Al-Furat">بالتعاون مع شركة الفرات</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">450</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="مسرح البصرة الوطني" data-en="Basra National Theatre">مسرح البصرة الوطني</h3>
+            <div class="meta" data-ar="العباسية، البصرة" data-en="Basra">العباسية، البصرة</div>
+            <div class="with" data-ar="بالتعاون مع شركة يورك جبل علي" data-en="With York Jebel Ali">بالتعاون مع شركة يورك جبل علي</div>
+          </article>
+          <article class="proj">
+            <div class="cap"><span class="cap-n">280</span><span class="cap-u" data-ar="طن" data-en="TR">طن</span></div>
+            <h3 data-ar="قاعة الحكيم" data-en="Al-Hakim Hall">قاعة الحكيم</h3>
+            <div class="meta" data-ar="جامعة بغداد" data-en="University of Baghdad">جامعة بغداد</div>
+            <div class="with" data-ar="مع شركة الإبداع الهندسي" data-en="With Al-Ibda' Al-Handasi">مع شركة الإبداع الهندسي</div>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
