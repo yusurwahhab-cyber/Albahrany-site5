@@ -167,6 +167,8 @@ section[id],main[id]{scroll-margin-top:100px}
 .svc-bms .svc-ico{color:var(--steel-2)}
 .svc h3{font-size:23px}
 .svc p{margin-top:10px;color:var(--muted);max-width:60ch}
+.svc-shots{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px;max-width:660px}
+.svc-bms .svc-shots{grid-template-columns:minmax(0,1fr);max-width:440px}
 .svc-note{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
   font-size:15px;font-weight:600;color:var(--steel-2)}
 .integrated{margin-top:46px;padding:22px 26px;background:var(--concrete-2);border:1px solid var(--line);
@@ -245,6 +247,8 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   .proj-grid{grid-template-columns:1fr}
   .shots{grid-template-columns:1fr 1fr;gap:10px}
   .shots figure:last-child{grid-column:1/-1}
+  .svc-shots{grid-template-columns:1fr;gap:10px;max-width:none}
+  .svc-shots figure:last-child{grid-column:auto}
   .hero{padding-block:34px 28px}
   .hero h1{max-width:none}
   .grid4{grid-template-columns:1fr}
@@ -492,6 +496,10 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
             <li data-ar="غرف السيرفرات وغرف السيطرة" data-en="Server rooms and control rooms">غرف السيرفرات وغرف السيطرة</li>
             <li data-ar="مناطق المعدات الحساسة" data-en="Sensitive equipment areas">مناطق المعدات الحساسة</li>
         </ul>
+        <div class="shots svc-shots">
+          <figure><img src="images/site-fire-pump-room.jpg" width="1000" height="750" loading="lazy" alt="غرفة مضخات وصمامات نظام إطفاء الحريق مع مقاييس الضغط في أحد مواقع العمل" data-ar-alt="غرفة مضخات وصمامات نظام إطفاء الحريق مع مقاييس الضغط في أحد مواقع العمل" data-en-alt="A fire pump and valve room with pressure gauges on one of our sites"></figure>
+          <figure><img src="images/site-fire-piping.jpg" width="1000" height="750" loading="lazy" alt="تمديد مواسير إطفاء الحريق وحواملها على السقف في أحد مواقع العمل" data-ar-alt="تمديد مواسير إطفاء الحريق وحواملها على السقف في أحد مواقع العمل" data-en-alt="Fire protection piping and its supports run along the ceiling on one of our sites"></figure>
+        </div>
       </article>
 
       <article class="svc svc-bms">
@@ -505,6 +513,9 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
             <li data-ar="مراقبة استهلاك الطاقة" data-en="Energy monitoring">مراقبة استهلاك الطاقة</li>
             <li data-ar="واجهة تشغيل واحدة" data-en="A single operating interface">واجهة تشغيل واحدة</li>
         </ul>
+        <div class="shots svc-shots">
+          <figure><img src="images/site-electrical-panels.jpg" width="1000" height="750" loading="lazy" alt="لوحات التوزيع الكهربائية الرئيسية وترييات الكيبلات في أحد مواقع العمل" data-ar-alt="لوحات التوزيع الكهربائية الرئيسية وترييات الكيبلات في أحد مواقع العمل" data-en-alt="Main low-voltage distribution panels and cable trays on one of our sites"></figure>
+        </div>
       </article>
 
       <p class="integrated" data-ar="منظومة إدارة البناية تربط التبريد بالحريق: عند تفعيل إنذار الحريق تتوقف وحدات مناولة الهواء تلقائياً بدل أن تدفع الهواء والدخان. النتيجة منظومة واحدة منسّقة من جهة تنفيذ واحدة، بدل ثلاثة عقود لا تتكلم مع بعضها." data-en="The building management system links cooling to fire: when a fire alarm triggers, the air handling units shut down automatically instead of pushing air and smoke. The result is one coordinated system from one contractor, rather than three contracts that do not talk to each other.">منظومة إدارة البناية تربط التبريد بالحريق: عند تفعيل إنذار الحريق تتوقف وحدات مناولة الهواء تلقائياً بدل أن تدفع الهواء والدخان. النتيجة منظومة واحدة منسّقة من جهة تنفيذ واحدة، بدل ثلاثة عقود لا تتكلم مع بعضها.</p>
