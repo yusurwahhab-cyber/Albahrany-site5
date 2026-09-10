@@ -46,44 +46,34 @@
     });
   }
 
-  /* ---- mobile menu + services dropdown ---- */
-  var menuBtn = document.getElementById('menuBtn');
-  var nav     = document.getElementById('nav');
-  var drops   = document.querySelectorAll('.drop-toggle');
+  /* ---- hero services panel ---- */
+  var svcToggle = document.getElementById('svcToggle');
+  var svcPanel  = document.getElementById('svcPanel');
 
-  function closeDrops(){
-    for (var i=0;i<drops.length;i++){ drops[i].setAttribute('aria-expanded','false'); }
-  }
-  function closeMenu(){
-    if (nav) nav.classList.remove('open');
-    if (menuBtn) menuBtn.setAttribute('aria-expanded','false');
-    closeDrops();
+  function setSvc(open){
+    if (!svcToggle || !svcPanel) return;
+    svcToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    svcPanel.hidden = !open;
   }
 
-  if (menuBtn && nav) {
-    menuBtn.addEventListener('click', function(){
-      var open = nav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (!open) closeDrops();
+  if (svcToggle && svcPanel) {
+    setSvc(false);
+    svcToggle.addEventListener('click', function(){
+      var open = svcToggle.getAttribute('aria-expanded') !== 'true';
+      setSvc(open);
+      /* pull the button fully inside the scroller so the panel reads as its own */
+      if (open && svcToggle.scrollIntoView) {
+        svcToggle.scrollIntoView({block:'nearest', inline:'nearest', behavior:'smooth'});
+      }
     });
-    nav.addEventListener('click', function(e){
-      if (e.target.closest('a')) closeMenu();
+    svcPanel.addEventListener('click', function(e){
+      if (e.target.closest('a')) setSvc(false);
     });
-  }
-
-  for (var d=0; d<drops.length; d++){
-    drops[d].addEventListener('click', function(e){
-      e.stopPropagation();
-      var open = this.getAttribute('aria-expanded') === 'true';
-      closeDrops();
-      this.setAttribute('aria-expanded', open ? 'false' : 'true');
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && svcToggle.getAttribute('aria-expanded') === 'true') {
+        setSvc(false);
+        svcToggle.focus();
+      }
     });
   }
-
-  document.addEventListener('click', function(e){
-    if (!e.target.closest('.has-drop')) closeDrops();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape'){ closeDrops(); closeMenu(); }
-  });
 })();

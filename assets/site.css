@@ -27,44 +27,15 @@ a{color:inherit;text-decoration:none}
 .lang:hover{background:var(--steel);color:var(--concrete)}
 section[id],main[id]{scroll-margin-top:100px}
 
-/* ---------- navigation ---------- */
-.nav-list{display:flex;align-items:center;gap:20px}
-.nav-list a{font-size:15.5px;font-weight:600;color:var(--muted);padding-block:8px;
-  white-space:nowrap;border-bottom:2px solid transparent}
-.nav-list a:hover{color:var(--steel);border-bottom-color:var(--chill)}
-.nav-call{display:none}
+/* ---------- header actions ---------- */
 .bar-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;
   font:inherit;background:none;border:1px solid var(--steel);border-radius:2px;color:var(--steel);cursor:pointer}
 .icon-btn:hover{background:var(--steel);color:var(--concrete)}
 .icon-btn svg{width:20px;height:20px;display:block}
-.menu-btn{display:none}
-.menu-btn .ico-close{display:none}
-.menu-btn[aria-expanded="true"] .ico-open{display:none}
-.menu-btn[aria-expanded="true"] .ico-close{display:block}
 @media (max-width:1279px){
-  .topbar .wrap{justify-content:center;gap:0;padding-block:12px;min-height:0}
+  .topbar .wrap{gap:12px 20px;padding-block:12px;min-height:0}
   .mark img{height:40px}
-  .mark{width:100%;display:flex;justify-content:center}
-  .bar-actions{margin-top:12px}
-  .menu-btn{display:inline-flex}
-  .nav{position:absolute;inset-inline:0;top:100%;display:none;background:#F3F1ED;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    box-shadow:0 10px 24px rgba(12,43,69,0.08);max-height:72vh;overflow-y:auto}
-  .nav.open{display:block}
-  .nav-list{flex-direction:column;align-items:stretch;gap:0;
-    max-width:1080px;margin-inline:auto;padding-inline:28px}
-  .nav-list li + li{border-top:1px solid var(--line)}
-  .nav-list a{display:block;padding-block:19px;font-size:18px;font-weight:600;
-    color:var(--steel);border-bottom:none;
-    padding-inline-start:14px;border-inline-start:3px solid transparent;transition:background-color .12s}
-  .nav-list a:hover,.nav-list a:active,.nav-list a:focus-visible{
-    background:var(--concrete-2);border-inline-start-color:var(--chill);color:var(--steel)}
-  .nav-call{display:block;border-top:1px solid var(--line);background:rgba(12,43,69,0.035)}
-  .nav-call a{display:flex;align-items:baseline;gap:12px;padding-block:15px;padding-inline-start:14px;
-    border-inline-start:3px solid transparent;font-size:16.5px;font-weight:700;color:var(--chill)}
-  .nav-call a:hover,.nav-call a:active{background:var(--concrete-2);border-inline-start-color:var(--chill)}
-  .nav-call .cc{font-size:14px;font-weight:600;color:var(--muted);min-width:56px}
 }
 
 /* ---------- about ---------- */
@@ -211,8 +182,7 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
 @media (max-width:560px){
   body{font-size:16.5px}
   .wrap{padding-inline:20px}
-  .nav-list{padding-inline:20px}
-  .mark img{height:36px}
+  .mark img{height:34px}
   .lang{padding:6px 14px;font-size:14px}
   .foot-mark{height:28px}
   .contact-mark{height:30px}
@@ -243,40 +213,61 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
 }
 @media (max-width:400px){
   .bar-actions{gap:8px}
-  .lang{padding:6px 12px}
+  .lang{padding:6px 11px;font-size:13.5px}
+  .mark img{height:28px}
 }
 
-/* ---------- services dropdown ---------- */
-.has-drop{position:relative}
-.drop-toggle{font:inherit;font-size:15.5px;font-weight:600;color:var(--muted);background:none;
-  border:none;border-bottom:2px solid transparent;padding:8px 0;cursor:pointer;
-  display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-.drop-toggle:hover{color:var(--steel);border-bottom-color:var(--chill)}
-.drop-caret{width:11px;height:11px;flex-shrink:0;transition:transform .15s}
-.drop-toggle[aria-expanded="true"] .drop-caret{transform:rotate(180deg)}
-.drop{display:none;position:absolute;top:100%;inset-inline-start:-14px;z-index:20;min-width:288px;
-  background:#F3F1ED;border:1px solid var(--line);box-shadow:0 12px 28px rgba(12,43,69,0.12);
-  padding-block:6px}
-.drop li + li{border-top:1px solid var(--line)}
-.drop a{display:block;padding:11px 18px;font-size:15px;font-weight:600;color:var(--steel);
-  border-bottom:none;white-space:normal;line-height:1.4}
-.drop a:hover{background:var(--concrete-2);color:var(--steel);border-bottom:none}
-.drop-toggle[aria-expanded="true"] + .drop{display:block}
-@media (hover:hover) and (min-width:1280px){ .has-drop:hover .drop{display:block} }
+/* ---------- hero button row ---------- */
+.hero-nav{margin-top:34px}
+.hero-row{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-inline:contain;
+  scroll-snap-type:x proximity;scroll-padding-inline-start:28px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;
+  padding-inline:28px;margin-inline:-28px;padding-block:2px}
+.hero-row::-webkit-scrollbar{display:none}
+.hbtn{flex:0 0 auto;scroll-snap-align:start;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:46px;padding:11px 20px;font:inherit;font-size:15.5px;font-weight:600;
+  background:var(--concrete);border:1px solid var(--line);border-radius:2px;
+  color:var(--steel-2);white-space:nowrap;cursor:pointer;
+  transition:background-color .12s,border-color .12s,color .12s}
+.hbtn:hover{border-color:var(--chill);color:var(--steel)}
+.hbtn-caret{width:12px;height:12px;flex-shrink:0;transition:transform .18s}
+.hbtn-svc[aria-expanded="true"]{background:var(--steel);border-color:var(--steel);color:var(--concrete)}
+.hbtn-svc[aria-expanded="true"] .hbtn-caret{transform:rotate(180deg)}
 
-@media (max-width:1279px){
-  .has-drop{position:static}
-  .drop-toggle{display:flex;width:100%;justify-content:space-between;padding-block:19px;
-    font-size:18px;color:var(--steel);border-bottom:none;
-    padding-inline-start:14px;border-inline-start:3px solid transparent}
-  .drop-toggle:hover,.drop-toggle[aria-expanded="true"]{
-    background:var(--concrete-2);border-inline-start-color:var(--chill);border-bottom:none}
-  .drop{position:static;min-width:0;border:none;box-shadow:none;padding-block:0;
-    background:rgba(12,43,69,0.035);border-top:1px solid var(--line)}
-  .drop a{padding-block:15px;padding-inline-start:30px;font-size:16px;font-weight:600;
-    border-inline-start:3px solid transparent}
-  .drop a:hover,.drop a:active{background:var(--concrete-2);border-inline-start-color:var(--chill)}
+.svc-panel{margin-top:12px}
+.svc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sbtn{display:flex;align-items:center;min-height:54px;padding:11px 14px;
+  background:var(--concrete);border:1px solid var(--line);
+  border-inline-start:3px solid var(--chill);border-radius:2px;
+  font-size:14.5px;font-weight:600;color:var(--steel-2);line-height:1.35;
+  transition:background-color .12s,border-color .12s,color .12s}
+.sbtn:hover{background:var(--concrete-2);border-color:var(--chill);color:var(--steel)}
+@media (min-width:561px){
+  .svc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sbtn{font-size:15px}
 }
+@media (min-width:900px){ .svc-grid{grid-template-columns:repeat(5,minmax(0,1fr))} }
+@media (min-width:820px){
+  .hero-row{flex-wrap:wrap;justify-content:center;overflow-x:visible;
+    padding-inline:0;margin-inline:0}
+  .svc-panel{margin-top:14px}
+}
+@media (max-width:560px){
+  .hero-nav{margin-top:26px}
+  .hero-row{padding-inline:20px;margin-inline:-20px;scroll-padding-inline-start:20px;gap:9px}
+  .hbtn{font-size:15px;padding:11px 17px}
+}
+
+/* ---------- back-to-home strip on inner pages ---------- */
+.page-back{border-bottom:1px solid var(--line)}
+.page-back .wrap{padding-block:12px}
+.home-btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 16px;
+  background:var(--concrete);border:1px solid var(--line);border-radius:2px;
+  font-size:14.5px;font-weight:600;color:var(--steel-2);
+  transition:background-color .12s,border-color .12s,color .12s}
+.home-btn:hover{background:var(--concrete-2);border-color:var(--chill);color:var(--steel)}
+.home-btn svg{width:17px;height:17px;flex-shrink:0}
 
 /* ---------- service sub-pages ---------- */
 .crumbs{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
