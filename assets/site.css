@@ -326,30 +326,14 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
 .cta-lines a{font-weight:600;color:#fff}
 .cta-lines a:hover{color:#8CC4E2}
 
-/* ---------- homepage links to service pages ---------- */
-.svc-more{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-.svc-more a{display:inline-block;padding:9px 16px;border:1px solid var(--line);border-radius:2px;
-  background:var(--concrete);font-size:14.5px;font-weight:600;color:var(--steel-2)}
-.svc-more a:hover{border-color:var(--chill);color:var(--steel)}
-.more-svc{margin-top:52px;padding-top:34px;border-top:1px solid var(--line)}
-.svc-cards{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.svc-card{display:flex;flex-direction:column;padding:22px 24px;background:var(--concrete);
-  border:1px solid var(--line);border-top:3px solid var(--chill)}
-.svc-card:hover{border-color:var(--chill);box-shadow:0 8px 20px rgba(12,43,69,0.07)}
-.svc-card h3{font-size:17px;line-height:1.35}
-.svc-card p{margin-top:9px;font-size:14.5px;color:var(--muted);line-height:1.55}
-.svc-card .go{margin-top:auto;padding-top:14px;font-size:14px;font-weight:600;color:var(--chill)}
-
 @media (max-width:900px){
   .benefits{grid-template-columns:1fr 1fr}
-  .svc-cards{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
   .offer-list{grid-template-columns:1fr;gap:0}
   .offer-list li:nth-last-child(2):nth-child(odd){border-bottom:none}
   .offer-list li:last-child{border-bottom:1px solid var(--line)}
   .benefits{grid-template-columns:1fr;gap:22px}
-  .svc-cards{grid-template-columns:1fr}
   .page-head{padding-block:28px 34px}
   .cta-acts{flex-direction:column;align-items:stretch}
   .cta-btn{text-align:center}
