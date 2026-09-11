@@ -247,7 +247,6 @@ footer{padding-block:26px;font-size:14px;color:var(--muted);border-top:1px solid
   .svc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .sbtn{font-size:15px}
 }
-@media (min-width:900px){ .svc-grid{grid-template-columns:repeat(5,minmax(0,1fr))} }
 @media (min-width:820px){
   .hero-row{flex-wrap:wrap;justify-content:center;overflow-x:visible;
     padding-inline:0;margin-inline:0}
