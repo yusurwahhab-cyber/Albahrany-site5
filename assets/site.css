@@ -915,3 +915,109 @@ html[lang="en"] .hero-pill-badge {
 
 /* the CTA arrow is mirrored for RTL; point it forward again in English */
 html[dir="ltr"] .btn-primary-21st svg { transform: none !important; }
+
+
+/* Mobile-first refinements: keep the existing brand and desktop composition. */
+@media (max-width: 760px) {
+  :root { --sec: 46px; }
+  body { font-size: 15.5px; line-height: 1.62; }
+  .wrap { padding-inline: 20px; }
+  .hero-21st { min-height: auto; }
+  .hero-21st-content { padding-block: 44px 32px; }
+  .hero-21st .hero-desc { margin-top: 16px; font-size: 15px; line-height: 1.6; }
+  .hero-21st-actions { gap: 10px; margin-top: 24px; }
+  .hero-stats-bar { gap: 8px; margin-top: 32px; padding-top: 22px; }
+  .hero-stat-card { padding: 6px 8px; }
+  .hero-stat-num { font-size: clamp(23px, 5vw, 30px); }
+  .hero-stat-label { margin-top: 6px; font-size: 12px; }
+  .hero-partners-banner { padding-block: 16px; }
+  .hero-partners-title { margin-bottom: 10px; font-size: 11px; }
+  .hero-partners-pills { gap: 7px; }
+  .partner-tag-pill { gap: 6px; padding: 7px 12px; font-size: 12px; }
+  .partner-tag-role { font-size: 10px; }
+  .about .sub { font-size: 17px; line-height: 1.55; }
+  .about .closing { padding: 17px 18px; }
+  .projects .sub, .offer .sub, .partners .sub { margin-bottom: 24px; }
+  .proj-group + .proj-group { margin-top: 32px; }
+  .gallery { margin-top: 30px; padding-top: 22px; }
+  .proj-more { margin-top: 20px; font-size: 16px; }
+  .svc-shots img { aspect-ratio: 16 / 10; }
+  .products .sub { margin-bottom: 26px; }
+  .prod { min-height: 0; padding: 18px 14px; }
+  .contact-container-21st { gap: 24px; }
+  .rows { margin-top: 22px; }
+  .row .v { font-size: clamp(16px, 4.5vw, 21px); }
+  .premium-footer { padding-block: 42px 24px; }
+  .footer-top-grid { gap: 24px; padding-bottom: 28px; }
+  .footer-bottom-bar { padding-top: 20px; }
+}
+
+@media (max-width: 560px) {
+  :root { --sec: 40px; }
+  body { font-size: 15px; line-height: 1.6; }
+  .wrap { padding-inline: 16px; }
+  .hero-21st-content { padding-block: 36px 26px; }
+  .hero-pill-badge { gap: 7px; margin-bottom: 17px; padding: 6px 10px; }
+  .hero-pill-tag { padding: 4px 9px; font-size: 11px; }
+  .hero-pill-text { font-size: 12px; }
+  .hero-21st h1 { max-width: 20ch; font-size: clamp(27px, 7.6vw, 34px); line-height: 1.2; }
+  .hero-21st .hero-desc { max-width: 42ch; font-size: 14px; }
+  .hero-21st-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
+  .btn-primary-21st, .btn-secondary-21st { justify-content: center; gap: 6px; min-height: 46px; padding: 9px 10px; font-size: 13px; text-align: center; }
+  .hero-nav { margin-top: 18px; }
+  .hbtn { min-height: 38px; padding-inline: 10px; font-size: 11.5px; }
+  .hero-stats-bar { margin-top: 24px; padding-top: 17px; }
+  .hero-stat-num { font-size: 23px; }
+  .hero-stat-label { font-size: 11px; line-height: 1.35; }
+  .hero-partners-banner { padding-block: 13px; }
+  .partner-tag-pill { padding: 6px 10px; font-size: 11px; }
+  .partner-tag-role { font-size: 9px; }
+  .about h2, .projects h2, .offer h2, .partners h2, .approach h2, .services h2, .products h2, .contact h2 { font-size: 25px; }
+  .about h2::after, .projects h2::after, .offer h2::after, .partners h2::after, .approach h2::after, .products h2::after { margin-top: 12px; }
+  .about .sub { font-size: 16px; }
+  .proj-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
+  .proj { padding: 15px 14px 13px; border-radius: 11px; }
+  .cap { gap: 4px; margin-bottom: 10px; }
+  .cap-n { font-size: 22px; }
+  .cap-u { font-size: 11px; }
+  .proj h3 { font-size: 14px; }
+  .proj .meta { margin: 5px 0 10px; font-size: 11px; }
+  .proj .with { padding-top: 9px; font-size: 10.5px; }
+  .shots { grid-template-columns: 1fr 1fr; gap: 9px; }
+  .shots figure:last-child { grid-column: auto; }
+  .shots img { aspect-ratio: 16 / 11; }
+  .group-title { margin-bottom: 12px; font-size: 16px; }
+  .grid4 { gap: 9px; }
+  .cell { padding: 18px 16px; }
+  .cell h3 { font-size: 16px; }
+  .cell p, .scope li { font-size: 14px; }
+  .svc { padding: 17px; }
+  .svc h3 { font-size: 18px; }
+  .svc-shots { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .svc-shots figure:last-child { grid-column: auto; }
+  .prod { padding: 16px 11px; }
+  .prod svg { width: 42px; height: 42px; margin-bottom: 10px; }
+  .prod h3 { font-size: 14px; }
+  .prod p { font-size: 12px; }
+  .partner-agency { padding: 21px 18px; }
+  .partner-agency .brand, .brand { font-size: 22px; }
+  .points > div { padding: 18px; }
+  .points h3 { font-size: 16px; }
+  .contact-card-modern { padding: 19px; border-radius: 15px; }
+  .row { gap: 6px 10px; padding-block: 11px; }
+  .row .k { min-width: 52px; font-size: 12px; }
+  .row .v { font-size: 16px; }
+  .row a.v[href^="mailto"] { font-size: 14px; }
+  .footer-top-grid { gap: 20px; }
+  .footer-bottom-bar { font-size: 11px; }
+}
+
+@media (max-width: 380px) {
+  .wrap { padding-inline: 14px; }
+  .hero-21st h1 { font-size: 27px; }
+  .hero-pill-text { max-width: 27ch; }
+  .hero-stats-bar { gap: 4px; }
+  .hero-stat-label { font-size: 10px; }
+  .partner-tag-pill { padding-inline: 8px; }
+  .proj { padding-inline: 11px; }
+}
