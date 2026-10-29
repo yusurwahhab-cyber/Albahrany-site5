@@ -428,3 +428,8 @@ footer { padding-block: 24px; border-top: 1px solid var(--line); color: var(--mu
   html { scroll-behavior: auto; }
   *,*::before,*::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+.foot-mark { display: block; width: auto; height: 30px; margin-bottom: 14px; opacity: .92; }
+.group-health .group-title { border-inline-start-color: var(--blue); }
+.partner-dist { border-inline-start: 3px solid var(--blue); padding-inline-start: 18px; }
+.partner-supply { border-inline-start: 3px solid var(--gold); padding-inline-start: 18px; }
