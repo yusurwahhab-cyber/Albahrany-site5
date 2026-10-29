@@ -1,4 +1,7 @@
 (function(){
+  var root = document.documentElement;
+
+  /* ---- language (Arabic default, English stored per visitor) ---- */
   var STORE = 'ab-lang';
   var meta_ = {
     title: {ar:'مجموعة البحراني', en:'Albahrany Group'},
@@ -14,14 +17,15 @@
   var labelled = document.querySelectorAll('[data-ar-label]');
   var alted    = document.querySelectorAll('[data-ar-alt]');
   var placed   = document.querySelectorAll('[data-ar-placeholder]');
+  var menuBtn  = document.getElementById('menuBtn');
 
   function meta(sel, value){
     var m = document.querySelector(sel);
     if (m && value) m.setAttribute('content', value);
   }
   function setLang(lang){
-    document.documentElement.lang = lang;
-    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    root.lang = lang;
+    root.dir = (lang === 'ar') ? 'rtl' : 'ltr';
     document.title = meta_.title[lang];
     meta('meta[name="description"]', meta_.desc[lang]);
     meta('meta[property="og:title"]', meta_.title[lang]);
@@ -34,7 +38,13 @@
     for (var j=0;j<labelled.length;j++){ labelled[j].setAttribute('aria-label', labelled[j].getAttribute('data-'+lang+'-label')); }
     for (var k=0;k<alted.length;k++){ alted[k].setAttribute('alt', alted[k].getAttribute('data-'+lang+'-alt')); }
     for (var m=0;m<placed.length;m++){ placed[m].setAttribute('placeholder', placed[m].getAttribute('data-'+lang+'-placeholder')); }
-    if (btn) btn.textContent = (lang === 'ar') ? 'English' : 'عربي';
+    if (btn) {
+      btn.textContent = (lang === 'ar') ? 'English' : 'عربي';
+      btn.setAttribute('lang', lang === 'ar' ? 'en' : 'ar');
+    }
+    if (menuBtn && menuBtn.getAttribute('aria-expanded') === 'true') {
+      menuBtn.setAttribute('aria-label', lang === 'ar' ? 'إغلاق القائمة' : 'Close menu');
+    }
     try { localStorage.setItem(STORE, lang); } catch (e) {}
   }
 
@@ -44,114 +54,40 @@
 
   if (btn) {
     btn.addEventListener('click', function(){
-      setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar');
+      setLang(root.lang === 'ar' ? 'en' : 'ar');
     });
   }
 
-  /* ---- hero services panel ---- */
-  var svcToggle = document.getElementById('svcToggle');
-  var svcPanel  = document.getElementById('svcPanel');
+  /* ---- header: shadow once the page scrolls ---- */
+  var header = document.getElementById('siteHeader');
+  function onScroll(){ if (header) header.classList.toggle('is-scrolled', window.scrollY > 4); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 
-  function setSvc(open){
-    if (!svcToggle || !svcPanel) return;
-    svcToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    svcPanel.hidden = !open;
+  /* ---- mobile menu ---- */
+  var nav = document.getElementById('primaryNav');
+  function setMenu(open){
+    if (!menuBtn || !nav) return;
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    var lang = root.lang === 'en' ? 'en' : 'ar';
+    menuBtn.setAttribute('aria-label', open ? (lang === 'ar' ? 'إغلاق القائمة' : 'Close menu') : menuBtn.getAttribute('data-' + lang + '-label'));
+    nav.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-open', open);
   }
-
-  if (svcToggle && svcPanel) {
-    setSvc(false);
-    svcToggle.addEventListener('click', function(){
-      var open = svcToggle.getAttribute('aria-expanded') !== 'true';
-      setSvc(open);
-      /* pull the button fully inside the scroller so the panel reads as its own */
-      if (open && svcToggle.scrollIntoView) {
-        svcToggle.scrollIntoView({block:'nearest', inline:'nearest', behavior:'smooth'});
-      }
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function(){
+      setMenu(menuBtn.getAttribute('aria-expanded') !== 'true');
     });
-    svcPanel.addEventListener('click', function(e){
-      if (e.target.closest('a')) setSvc(false);
-    });
+    nav.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape' && svcToggle.getAttribute('aria-expanded') === 'true') {
-        setSvc(false);
-        svcToggle.focus();
-      }
+      if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') { setMenu(false); menuBtn.focus(); }
     });
+    window.addEventListener('resize', function(){ if (window.innerWidth > 1080) setMenu(false); });
   }
 
-  /* ---- luminous flowing lines in the hero ---- */
-  var canvas = document.getElementById('heroLuminousCanvas');
-  var ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (ctx) {
-    var width = 0, height = 0, t = 0, frame = 0, visible = true;
-    var LINES = 5, SPEED = 0.0016;
-
-    function resize(){
-      var parent = canvas.parentElement || document.body;
-      width  = canvas.width  = parent.clientWidth  || window.innerWidth;
-      height = canvas.height = parent.clientHeight || window.innerHeight;
-      if (!frame) draw();
-    }
-
-    function draw(){
-      ctx.clearRect(0, 0, width, height);
-      for (var i = 0; i < LINES; i++) {
-        var offset = i * 0.45;
-        var waveHeight = height * 0.18;
-        var baseY = height * 0.48 + (i - LINES / 2) * 55;
-
-        var grad = ctx.createLinearGradient(0, 0, width, height);
-        grad.addColorStop(0, 'rgba(217, 155, 53, 0.08)');
-        grad.addColorStop(0.35, 'rgba(49, 176, 203, 0.45)');
-        grad.addColorStop(0.75, 'rgba(18, 133, 168, 0.20)');
-        grad.addColorStop(1, 'rgba(7, 28, 46, 0.02)');
-
-        ctx.beginPath();
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.6 + (i % 2) * 1.2;
-        ctx.shadowColor = '#31b0cb';
-        ctx.shadowBlur = 14 + i * 3;
-        ctx.moveTo(0, baseY + Math.sin(t + offset) * waveHeight);
-        for (var x = 0; x <= width; x += 35) {
-          var progress = x / width;
-          var y = baseY +
-                  Math.sin(t + offset + progress * 4.2) * waveHeight * Math.sin(progress * Math.PI) +
-                  Math.cos(t * 0.75 + offset * 1.3 + progress * 2.8) * (waveHeight * 0.35);
-          ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-      }
-    }
-
-    function loop(){
-      frame = 0;
-      if (!visible || document.hidden) return;
-      t += SPEED;
-      draw();
-      frame = requestAnimationFrame(loop);
-    }
-    function start(){ if (!reduceMotion && !frame) frame = requestAnimationFrame(loop); }
-
-    window.addEventListener('resize', resize);
-    resize();
-
-    /* only animate while the hero is on screen and the tab is visible */
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function(entries){
-        visible = entries[0].isIntersecting;
-        if (visible) start();
-      }).observe(canvas);
-    }
-    document.addEventListener('visibilitychange', function(){ if (!document.hidden) start(); });
-    start();
-  }
-
-  /* ---- project category filter ---- */
+  /* ---- project sector filter ---- */
   var filterBtns = document.querySelectorAll('.proj-filter-btn');
   var projGroups = document.querySelectorAll('.proj-group');
-
   for (var f = 0; f < filterBtns.length; f++) {
     filterBtns[f].addEventListener('click', function(){
       var cat = this.getAttribute('data-filter');
@@ -172,24 +108,52 @@
   var inquirySuccess = document.getElementById('inquirySuccessMsg');
   var inquiryMail    = document.getElementById('inquiryMailLink');
 
+  function field(id){ return document.getElementById(id); }
   function fieldValue(id){
-    var el = document.getElementById(id);
+    var el = field(id);
     if (!el) return '';
     if (el.tagName === 'SELECT') return el.options[el.selectedIndex] ? el.options[el.selectedIndex].text : '';
     return el.value.trim();
   }
+  function setError(id, bad){
+    var el = field(id), msg = field(id + 'Err');
+    if (!el) return;
+    if (bad) el.setAttribute('aria-invalid', 'true'); else el.removeAttribute('aria-invalid');
+    if (msg) msg.hidden = !bad;
+  }
+  function validate(){
+    var name  = fieldValue('clientName');
+    var phone = fieldValue('clientPhone').replace(/[\s()\-.]/g, '');
+    var email = fieldValue('clientEmail');
+    var errs = [];
+    setError('clientName', !name);                         if (!name) errs.push('clientName');
+    var phoneBad = !/^\+?\d{7,15}$/.test(phone);
+    setError('clientPhone', phoneBad);                     if (phoneBad) errs.push('clientPhone');
+    var emailBad = !!email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    setError('clientEmail', emailBad);                     if (emailBad) errs.push('clientEmail');
+    return errs;
+  }
 
   if (inquiryForm) {
+    ['clientName','clientPhone','clientEmail'].forEach(function(id){
+      var el = field(id);
+      if (el) el.addEventListener('input', function(){ if (el.getAttribute('aria-invalid')) setError(id, false); });
+    });
+
     inquiryForm.addEventListener('submit', function(e){
       e.preventDefault();
-      var ar = document.documentElement.lang === 'ar';
+      var errs = validate();
+      if (errs.length) { field(errs[0]).focus(); return; }
+
+      var ar = root.lang === 'ar';
       var lines = [
-        ar ? 'طلب دراسة فنية أو تسعير مشروع' : 'Project study / quotation request',
+        ar ? 'طلب دراسة فنية أو عرض سعر' : 'Technical study / quotation request',
         (ar ? 'الاسم: ' : 'Name: ') + fieldValue('clientName'),
-        (ar ? 'الهاتف: ' : 'Phone: ') + fieldValue('clientPhone'),
-        (ar ? 'البريد: ' : 'Email: ') + fieldValue('clientEmail'),
-        (ar ? 'المنظومة المطلوبة: ' : 'Requested system: ') + fieldValue('projectType')
+        (ar ? 'الهاتف: ' : 'Phone: ') + fieldValue('clientPhone')
       ];
+      var email = fieldValue('clientEmail');
+      if (email) lines.push((ar ? 'البريد: ' : 'Email: ') + email);
+      lines.push((ar ? 'المنظومة المطلوبة: ' : 'System required: ') + fieldValue('projectType'));
       var scope = fieldValue('projectScope');
       if (scope) lines.push((ar ? 'التفاصيل: ' : 'Details: ') + scope);
       var body = lines.join('\n');
@@ -203,15 +167,30 @@
 
       inquiryForm.reset();
       inquiryForm.hidden = true;
-      if (inquirySuccess) inquirySuccess.style.display = 'block';
+      if (inquirySuccess) { inquirySuccess.hidden = false; inquirySuccess.focus(); }
     });
   }
 
   var resetInquiryBtn = document.getElementById('resetInquiryBtn');
   if (resetInquiryBtn && inquiryForm && inquirySuccess) {
     resetInquiryBtn.addEventListener('click', function(){
-      inquirySuccess.style.display = 'none';
+      inquirySuccess.hidden = true;
       inquiryForm.hidden = false;
+      field('clientName').focus();
     });
+  }
+
+  /* ---- gentle reveal for section content (skipped when motion is reduced) ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin: '0px 0px -8% 0px'});
+    for (var r = 0; r < reveals.length; r++) io.observe(reveals[r]);
+  } else {
+    for (var q = 0; q < reveals.length; q++) reveals[q].classList.add('is-in');
   }
 })();
