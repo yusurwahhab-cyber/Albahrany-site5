@@ -273,17 +273,24 @@ html[lang="en"] .eyebrow { text-transform: uppercase; font-size: 12.5px; letter-
 /* --------------------------------------------------------------------------
    Home — hero
    -------------------------------------------------------------------------- */
-.hero { position: relative; overflow: hidden; background: var(--navy-900); color: var(--on-dark-2); }
+.hero { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(118deg, #111b25 0%, #1b2b38 52%, #122331 100%); color: var(--on-dark-2); }
+.hero::after {
+  content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(116deg, transparent 34%, rgba(213,239,255,.045) 45%, rgba(111,177,211,.075) 48%, transparent 57%),
+    radial-gradient(ellipse at 76% 22%, rgba(139,193,222,.12), transparent 42%),
+    linear-gradient(90deg, rgba(4,14,22,.16), transparent 62%);
+}
 .hero::before {           /* fine engineering grid */
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background-image:
-    linear-gradient(rgba(159,220,236,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(159,220,236,.06) 1px, transparent 1px);
+    linear-gradient(rgba(197,220,234,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197,220,234,.045) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, #000 30%, transparent 85%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, #000 30%, transparent 85%);
 }
-.hero-flow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .55; }
+.hero-flow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .38; }
 .hero-flow path { fill: none; stroke-width: 1.2; }
 .hero-flow .pipe { stroke: rgba(159,220,236,.12); }
 .hero-flow .pulse { stroke: var(--ice-300); stroke-dasharray: 60 940; stroke-linecap: round; opacity: .7; }
@@ -298,13 +305,13 @@ html[lang="en"] .eyebrow { text-transform: uppercase; font-size: 12.5px; letter-
 .hero-grid {
   position: relative; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
   gap: var(--s7); align-items: center;
-  padding-block: clamp(40px, 5vw + 8px, 88px) clamp(32px, 4vw, 64px);
+  padding-block: clamp(36px, 4vw + 8px, 68px) clamp(28px, 3vw, 48px);
 }
-.hero h1 { margin-top: var(--s4); color: #fff; font-size: clamp(28px, 1.9vw + 16px, 44px); max-width: 23ch; }
-.hero-lede { margin-top: var(--s5); max-width: 54ch; color: var(--on-dark-2); font-size: var(--fs-md); }
+.hero h1 { margin-top: var(--s4); color: #fff; font-size: clamp(27px, 1.55vw + 16px, 40px); max-width: 18ch; }
+.hero-lede { margin-top: var(--s4); max-width: 48ch; color: #c7d2da; font-size: clamp(15px, .25vw + 14px, 16.5px); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s6); }
 .hero-media { position: relative; }
-.hero-media picture { overflow: hidden; border-radius: var(--r-lg); aspect-ratio: 4 / 3.1; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+.hero-media picture { overflow: hidden; border: 1px solid rgba(220,239,249,.2); border-radius: 4px; aspect-ratio: 4 / 3.1; box-shadow: 0 22px 48px rgba(0,0,0,.3); }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-media figcaption { margin-top: var(--s4); color: var(--on-dark-3); font-size: var(--fs-xs); }
 
@@ -325,17 +332,24 @@ html[lang="en"] .eyebrow { text-transform: uppercase; font-size: 12.5px; letter-
 .div-index a { border-top: 2px solid transparent; margin-top: -1px; }
 .div-index a:hover { border-top-color: var(--acc-d); }
 @media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: var(--s6); }
-  .hero h1 { max-width: 24ch; }
-  .hero-media { max-width: 620px; }
+  .hero-grid { grid-template-columns: 1fr; gap: var(--s5); }
+  .hero h1 { max-width: 20ch; }
+  .hero-media { width: 100%; max-width: 560px; }
   .hero-media picture { aspect-ratio: 16 / 9; }
   .div-index { grid-template-columns: 1fr; }
   .div-index li + li { border-inline-start: 0; border-top: 1px solid var(--line-dark); }
   .div-index a, .div-index li + li a { padding: var(--s4) 0; }
 }
 @media (max-width: 560px) {
-  .hero-actions .btn { flex: 1 1 100%; }
-  .hero-lede { margin-top: var(--s4); }
+  .hero-grid { gap: var(--s4); padding-block: 30px 24px; }
+  .hero h1 { margin-top: var(--s3); font-size: clamp(26px, 7vw, 32px); max-width: 17ch; }
+  .hero-lede { margin-top: var(--s3); font-size: 15px; line-height: 1.7; }
+  .hero-actions { gap: var(--s2); margin-top: var(--s4); }
+  .hero-actions .btn { flex: 1 1 auto; min-height: 44px; padding-inline: 12px; font-size: 14px; }
+  .hero-media figcaption { margin-top: var(--s2); }
+  .hero-flow { opacity: .22; }
+  .div-index .t { font-size: 15px; }
+  .div-index .d { font-size: 12.5px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -848,3 +862,4 @@ html[lang="en"] .footer-col h2 { text-transform: uppercase; font-size: 12.5px; l
 .page-head .div-diagram { border: 1px solid var(--line-dark); background: rgba(255,255,255,.02); }
 .contact-side .note { margin-top: var(--s6); }
 .intro-copy .group-title { margin-bottom: var(--s2); }
+
