@@ -32,7 +32,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
-<link rel="stylesheet" href="assets/site.css?v=20261029c">
+<link rel="stylesheet" href="assets/site.css?v=20261101">
 <script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {
@@ -71,31 +71,33 @@
 
     <nav class="primary-nav" id="primaryNav" data-ar-label="القائمة الرئيسية" data-en-label="Main navigation" aria-label="القائمة الرئيسية">
       <ul class="nav-list">
-        <li><a href="/#services" data-ar="الخدمات" data-en="Services">الخدمات</a></li>
-        <li><a href="/#projects" data-ar="المشاريع" data-en="Projects">المشاريع</a></li>
-        <li><a href="/#process" data-ar="آلية العمل" data-en="How we work">آلية العمل</a></li>
-        <li><a href="/#partners" data-ar="الوكالات" data-en="Partners">الوكالات</a></li>
-        <li><a href="/#products" data-ar="المنتجات" data-en="Products">المنتجات</a></li>
-        <li><a href="/#about" data-ar="عن المجموعة" data-en="About">عن المجموعة</a></li>
+        <li class="nav-group-title" role="presentation"><span data-ar="الأقسام الرئيسية" data-en="Main divisions">الأقسام الرئيسية</span></li>
+        <li data-accent="hvac"><a href="central-cooling.html"><span class="nav-dot" aria-hidden="true"></span><span data-ar="التبريد المركزي" data-en="Central Cooling">التبريد المركزي</span></a></li>
+        <li data-accent="fire"><a href="fire-protection.html"><span class="nav-dot" aria-hidden="true"></span><span data-ar="مكافحة الحرائق" data-en="Fire Protection">مكافحة الحرائق</span></a></li>
+        <li data-accent="bms"><a href="building-management.html"><span class="nav-dot" aria-hidden="true"></span><span data-ar="إدارة البنايات" data-en="Building Management">إدارة البنايات</span></a></li>
+        <li class="nav-has-drop" data-current="true">
+          <button class="nav-drop-btn" type="button" aria-expanded="false" aria-controls="navServices"><span data-ar="الخدمات" data-en="Services">الخدمات</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <ul class="nav-drop" id="navServices">
+            <li><a href="refrigeration.html" aria-current="page"><span data-ar="التبريد الصناعي والتجاري" data-en="Industrial &amp; commercial refrigeration">التبريد الصناعي والتجاري</span></a></li>
+            <li><a href="after-sales.html"><span data-ar="خدمات ما بعد البيع" data-en="After-sales services">خدمات ما بعد البيع</span></a></li>
+            <li><a href="testing-balancing-commissioning.html"><span data-ar="الاختبار والموازنة والتشغيل (TAB)" data-en="Testing, balancing &amp; commissioning">الاختبار والموازنة والتشغيل (TAB)</span></a></li>
+            <li><a href="energy-efficiency.html"><span data-ar="حلول رفع كفاءة الطاقة" data-en="Energy efficiency">حلول رفع كفاءة الطاقة</span></a></li>
+            <li><a href="indoor-air-quality.html"><span data-ar="جودة الهواء الداخلي (IAQ)" data-en="Indoor air quality (IAQ)">جودة الهواء الداخلي (IAQ)</span></a></li>
+            <li><a href="tri-generation.html"><span data-ar="التوليد الثلاثي (CCHP)" data-en="Tri-generation (CCHP)">التوليد الثلاثي (CCHP)</span></a></li>
+          </ul>
+        </li>
+        <li><a href="projects.html"><span data-ar="المشاريع" data-en="Projects">المشاريع</span></a></li>
+        <li><a href="about.html"><span data-ar="عن المجموعة" data-en="About">عن المجموعة</span></a></li>
       </ul>
       <div class="nav-extra">
-        <p class="nav-extra-title" data-ar="خدمات متخصصة" data-en="Specialist services">خدمات متخصصة</p>
-        <ul>
-            <li><a href="after-sales.html" data-ar="خدمات ما بعد البيع" data-en="After-sales services">خدمات ما بعد البيع</a></li>
-            <li><a href="testing-balancing-commissioning.html" data-ar="الاختبار والموازنة والتشغيل (TAB)" data-en="Testing, balancing &amp; commissioning">الاختبار والموازنة والتشغيل (TAB)</a></li>
-            <li><a href="refrigeration.html" aria-current="page" data-ar="التبريد الصناعي والتجاري" data-en="Industrial &amp; commercial refrigeration">التبريد الصناعي والتجاري</a></li>
-            <li><a href="energy-efficiency.html" data-ar="حلول رفع كفاءة الطاقة" data-en="Energy efficiency">حلول رفع كفاءة الطاقة</a></li>
-            <li><a href="tri-generation.html" data-ar="التوليد الثلاثي (CCHP)" data-en="Tri-generation (CCHP)">التوليد الثلاثي (CCHP)</a></li>
-            <li><a href="indoor-air-quality.html" data-ar="جودة الهواء الداخلي (IAQ)" data-en="Indoor air quality (IAQ)">جودة الهواء الداخلي (IAQ)</a></li>
-        </ul>
-        <a class="btn btn-primary" href="/#contact" data-ar="اطلب دراسة فنية أو عرض سعر" data-en="Request a technical study or quote">اطلب دراسة فنية أو عرض سعر</a>
+        <a class="btn btn-primary" href="contact.html"><span data-ar="تواصل مع فريقنا" data-en="Contact our team">تواصل مع فريقنا</span></a>
         <p class="nav-phone"><a href="tel:+9647734114077" dir="ltr">+964 773 411 4077</a></p>
       </div>
     </nav>
 
     <div class="header-actions">
       <button class="lang-btn" id="langBtn" type="button" lang="en">English</button>
-      <a class="btn btn-primary btn-sm header-cta" href="/#contact" data-ar="اطلب عرض سعر" data-en="Request a quote">اطلب عرض سعر</a>
+      <a class="btn btn-primary btn-sm header-cta" href="contact.html" data-ar="تواصل معنا" data-en="Contact us">تواصل معنا</a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="primaryNav" data-ar-label="فتح القائمة" data-en-label="Open menu" aria-label="فتح القائمة">
         <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -119,7 +121,7 @@
       <p class="kicker" data-ar="غرف ومخازن التبريد، وتبريد العمليات، وأبراج التبريد — في العراق" data-en="Cold rooms, cold storage, process cooling and cooling towers — across Iraq">غرف ومخازن التبريد، وتبريد العمليات، وأبراج التبريد — في العراق</p>
       <p class="lede" data-ar="التبريد الصناعي يختلف عن تكييف الراحة: الحمل مستمر، ودرجة الحرارة والرطوبة جزء من جودة المنتج نفسه لا من راحة الأشخاص. نصمّم وننفّذ ونصين غرف التبريد والتجميد ومخازن التبريد وتبريد العمليات الصناعية وأبراج طرح الحرارة، ونختار المنظومة على أساس المادة المخزونة أو العملية الإنتاجية وظروف التشغيل في العراق." data-en="Industrial refrigeration is not comfort cooling: the load is continuous, and temperature and humidity are part of the product's quality rather than of people's comfort. We design, install and maintain cold and freezer rooms, cold storage, industrial process cooling and heat rejection towers, selecting the system around the stored material or production process and Iraqi operating conditions.">التبريد الصناعي يختلف عن تكييف الراحة: الحمل مستمر، ودرجة الحرارة والرطوبة جزء من جودة المنتج نفسه لا من راحة الأشخاص. نصمّم وننفّذ ونصين غرف التبريد والتجميد ومخازن التبريد وتبريد العمليات الصناعية وأبراج طرح الحرارة، ونختار المنظومة على أساس المادة المخزونة أو العملية الإنتاجية وظروف التشغيل في العراق.</p>
       <div class="cta-acts">
-        <a class="btn btn-light" href="/#contact" data-ar="اطلب تقييماً فنياً أو عرض سعر" data-en="Request a technical assessment or quote">اطلب تقييماً فنياً أو عرض سعر</a>
+        <a class="btn btn-light" href="contact.html" data-ar="اطلب تقييماً فنياً أو عرض سعر" data-en="Request a technical assessment or quote">اطلب تقييماً فنياً أو عرض سعر</a>
         <a class="btn btn-outline-light" href="#assessment" data-ar="ما المعلومات المطلوبة؟" data-en="What information do we need?">ما المعلومات المطلوبة؟</a>
       </div>
     </div>
@@ -163,7 +165,7 @@
         </table>
       </div>
       <p class="prose" data-ar="في المنشآت الصناعية يجتمع الاثنان غالباً: تبريد صناعي للمخازن وخطوط الإنتاج، وتكييف لفضاءات العمل والإدارة. لذلك نتعامل مع التبريد والتكييف الصناعي كمنظومة واحدة عند الحاجة، ونصمّم الجزأين معاً." data-en="Industrial facilities usually need both: refrigeration for stores and production lines, and air conditioning for work and office areas. Where that is the case, we treat industrial cooling and air conditioning as one system and design both parts together.">في المنشآت الصناعية يجتمع الاثنان غالباً: تبريد صناعي للمخازن وخطوط الإنتاج، وتكييف لفضاءات العمل والإدارة. لذلك نتعامل مع التبريد والتكييف الصناعي كمنظومة واحدة عند الحاجة، ونصمّم الجزأين معاً.</p>
-      <p class="prose"><span data-ar="وإذا كان المطلوب تبريد فضاءات البناية نفسها — مكاتب أو قاعات أو مستشفيات — فراجع" data-en="If what you need is cooling for the building spaces themselves — offices, halls or hospitals — see our">وإذا كان المطلوب تبريد فضاءات البناية نفسها — مكاتب أو قاعات أو مستشفيات — فراجع</span> <a href="/#svc-hvac" data-ar="أنظمة التبريد والتكييف المركزي" data-en="central HVAC systems">أنظمة التبريد والتكييف المركزي</a><span data-ar="." data-en=".">.</span></p>
+      <p class="prose"><span data-ar="وإذا كان المطلوب تبريد فضاءات البناية نفسها — مكاتب أو قاعات أو مستشفيات — فراجع" data-en="If what you need is cooling for the building spaces themselves — offices, halls or hospitals — see our">وإذا كان المطلوب تبريد فضاءات البناية نفسها — مكاتب أو قاعات أو مستشفيات — فراجع</span> <a href="central-cooling.html" data-ar="أنظمة التبريد والتكييف المركزي" data-en="central HVAC systems">أنظمة التبريد والتكييف المركزي</a><span data-ar="." data-en=".">.</span></p>
     </div>
   </section>
 
@@ -176,7 +178,7 @@
         <div class="benefit"><h3 data-ar="غرف التجميد تحت الصفر" data-en="Sub-zero freezer rooms">غرف التجميد تحت الصفر</h3><p data-ar="لحفظ المواد المجمّدة كاللحوم والأغذية المجمّدة، وتحتاج عزلاً أسمك ومعالجةً لتجمّد الأرضية ولتراكم الثلج على المبخّر." data-en="For frozen goods such as meat and frozen food; they need thicker insulation and measures against floor freezing and ice build-up on the evaporator.">لحفظ المواد المجمّدة كاللحوم والأغذية المجمّدة، وتحتاج عزلاً أسمك ومعالجةً لتجمّد الأرضية ولتراكم الثلج على المبخّر.</p></div>
         <div class="benefit"><h3 data-ar="مخازن الأدوية والمواد الحساسة" data-en="Pharmaceutical and sensitive-goods stores">مخازن الأدوية والمواد الحساسة</h3><p data-ar="مخازن تُضبط فيها درجة الحرارة ضمن مدى محدد وتُراقَب باستمرار، لأن الخروج عن هذا المدى قد يُتلف المادة." data-en="Stores where temperature is held within a defined range and monitored continuously, because leaving that range can spoil the product.">مخازن تُضبط فيها درجة الحرارة ضمن مدى محدد وتُراقَب باستمرار، لأن الخروج عن هذا المدى قد يُتلف المادة.</p></div>
       </div>
-      <p class="note"><span data-ar="ومن مشاريعنا المنجزة في المنشآت الدوائية مخازن أدوية كيماديا في حي الجامعة ببغداد بسعة 450 طن تبريد." data-en="Among our delivered projects in pharmaceutical facilities are the Kimadia pharmaceutical warehouses in Al-Jamia, Baghdad, at 450 TR.">ومن مشاريعنا المنجزة في المنشآت الدوائية مخازن أدوية كيماديا في حي الجامعة ببغداد بسعة 450 طن تبريد.</span> <a href="/#projects" data-ar="اطّلع على المشاريع المنجزة" data-en="See our delivered projects">اطّلع على المشاريع المنجزة</a></p>
+      <p class="note"><span data-ar="ومن مشاريعنا المنجزة في المنشآت الدوائية مخازن أدوية كيماديا في حي الجامعة ببغداد بسعة 450 طن تبريد." data-en="Among our delivered projects in pharmaceutical facilities are the Kimadia pharmaceutical warehouses in Al-Jamia, Baghdad, at 450 TR.">ومن مشاريعنا المنجزة في المنشآت الدوائية مخازن أدوية كيماديا في حي الجامعة ببغداد بسعة 450 طن تبريد.</span> <a href="projects.html" data-ar="اطّلع على المشاريع المنجزة" data-en="See our delivered projects">اطّلع على المشاريع المنجزة</a></p>
     </div>
   </section>
 
@@ -268,7 +270,7 @@
     <div class="wrap">
       <h2 class="group-title" data-ar="خدمات ذات علاقة" data-en="Related services">خدمات ذات علاقة</h2>
       <ul class="svc-links">
-        <li><a class="svc-link" href="/#svc-hvac">
+        <li><a class="svc-link" href="central-cooling.html">
           <span class="svc-link-title" data-ar="أنظمة التبريد والتكييف المركزي" data-en="Central HVAC systems">أنظمة التبريد والتكييف المركزي</span>
           <span class="svc-link-desc" data-ar="الشلرات وأنظمة VRF ووحدات مناولة الهواء للأبنية" data-en="Chillers, VRF systems and air handling units for buildings">الشلرات وأنظمة VRF ووحدات مناولة الهواء للأبنية</span>
           <svg class="ico-fwd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -292,7 +294,7 @@
       <h2 data-ar="اطلب تقييماً فنياً لمنظومة التبريد" data-en="Request a technical assessment for your refrigeration system">اطلب تقييماً فنياً لمنظومة التبريد</h2>
       <p data-ar="أرسل لنا نوع المادة أو العملية والسعة والموقع، ونرجع لك بالتقييم والعرض المناسب." data-en="Send us the material or process, the capacity and the site, and we'll come back with an assessment and a suitable proposal.">أرسل لنا نوع المادة أو العملية والسعة والموقع، ونرجع لك بالتقييم والعرض المناسب.</p>
       <div class="cta-acts">
-        <a class="btn btn-light" href="/#contact" data-ar="اطلب دراسة فنية أو عرض سعر" data-en="Request a technical study or quote">اطلب دراسة فنية أو عرض سعر</a>
+        <a class="btn btn-light" href="contact.html" data-ar="اطلب دراسة فنية أو عرض سعر" data-en="Request a technical study or quote">اطلب دراسة فنية أو عرض سعر</a>
         <a class="btn btn-outline-light" href="https://wa.me/9647734114077" target="_blank" rel="noopener" data-ar="راسلنا على واتساب" data-en="Message us on WhatsApp">راسلنا على واتساب</a>
       </div>
       <div class="cta-lines">
@@ -315,26 +317,29 @@
       </div>
 
       <div class="footer-col">
-        <h2 data-ar="المنظومات" data-en="Systems">المنظومات</h2>
+        <h2 data-ar="الأقسام الرئيسية" data-en="Divisions">الأقسام الرئيسية</h2>
         <ul>
-          <li><a href="/#svc-hvac" data-ar="التبريد والتكييف المركزي" data-en="Central HVAC">التبريد والتكييف المركزي</a></li>
-          <li><a href="/#svc-fire" data-ar="أنظمة مكافحة الحرائق" data-en="Fire protection">أنظمة مكافحة الحرائق</a></li>
-          <li><a href="/#svc-bms" data-ar="أنظمة إدارة البنايات (BMS)" data-en="Building management (BMS)">أنظمة إدارة البنايات (BMS)</a></li>
-          <li><a href="/#projects" data-ar="المشاريع المنجزة" data-en="Delivered projects">المشاريع المنجزة</a></li>
-          <li><a href="/#partners" data-ar="الوكالات والشراكات" data-en="Agency &amp; partners">الوكالات والشراكات</a></li>
-          <li><a href="/#about" data-ar="عن المجموعة" data-en="About the group">عن المجموعة</a></li>
+          <li data-accent="hvac"><a href="central-cooling.html"><span class="fdot" aria-hidden="true"></span><span data-ar="التبريد والتكييف المركزي" data-en="Central Cooling &amp; HVAC">التبريد والتكييف المركزي</span></a></li>
+          <li data-accent="fire"><a href="fire-protection.html"><span class="fdot" aria-hidden="true"></span><span data-ar="أنظمة مكافحة الحرائق" data-en="Fire Protection Systems">أنظمة مكافحة الحرائق</span></a></li>
+          <li data-accent="bms"><a href="building-management.html"><span class="fdot" aria-hidden="true"></span><span data-ar="أنظمة إدارة البنايات (BMS)" data-en="Building Management (BMS)">أنظمة إدارة البنايات (BMS)</span></a></li>
+        </ul>
+        <h2 class="sub" data-ar="المجموعة" data-en="Company">المجموعة</h2>
+        <ul>
+          <li><a href="projects.html"><span data-ar="المشاريع المنجزة" data-en="Delivered projects">المشاريع المنجزة</span></a></li>
+          <li><a href="about.html"><span data-ar="عن المجموعة" data-en="About the group">عن المجموعة</span></a></li>
+          <li><a href="contact.html"><span data-ar="تواصل معنا" data-en="Contact us">تواصل معنا</span></a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h2 data-ar="خدمات متخصصة" data-en="Specialist services">خدمات متخصصة</h2>
         <ul>
-          <li><a href="after-sales.html" data-ar="خدمات ما بعد البيع" data-en="After-sales services">خدمات ما بعد البيع</a></li>
-          <li><a href="testing-balancing-commissioning.html" data-ar="الاختبار والموازنة والتشغيل (TAB)" data-en="Testing, balancing &amp; commissioning">الاختبار والموازنة والتشغيل (TAB)</a></li>
-          <li><a href="refrigeration.html" data-ar="التبريد الصناعي والتجاري" data-en="Industrial &amp; commercial refrigeration">التبريد الصناعي والتجاري</a></li>
-          <li><a href="energy-efficiency.html" data-ar="حلول رفع كفاءة الطاقة" data-en="Energy efficiency">حلول رفع كفاءة الطاقة</a></li>
-          <li><a href="tri-generation.html" data-ar="التوليد الثلاثي (CCHP)" data-en="Tri-generation (CCHP)">التوليد الثلاثي (CCHP)</a></li>
-          <li><a href="indoor-air-quality.html" data-ar="جودة الهواء الداخلي (IAQ)" data-en="Indoor air quality (IAQ)">جودة الهواء الداخلي (IAQ)</a></li>
+          <li><a href="refrigeration.html"><span data-ar="التبريد الصناعي والتجاري" data-en="Industrial &amp; commercial refrigeration">التبريد الصناعي والتجاري</span></a></li>
+          <li><a href="after-sales.html"><span data-ar="خدمات ما بعد البيع" data-en="After-sales services">خدمات ما بعد البيع</span></a></li>
+          <li><a href="testing-balancing-commissioning.html"><span data-ar="الاختبار والموازنة والتشغيل (TAB)" data-en="Testing, balancing &amp; commissioning">الاختبار والموازنة والتشغيل (TAB)</span></a></li>
+          <li><a href="energy-efficiency.html"><span data-ar="حلول رفع كفاءة الطاقة" data-en="Energy efficiency">حلول رفع كفاءة الطاقة</span></a></li>
+          <li><a href="indoor-air-quality.html"><span data-ar="جودة الهواء الداخلي (IAQ)" data-en="Indoor air quality (IAQ)">جودة الهواء الداخلي (IAQ)</span></a></li>
+          <li><a href="tri-generation.html"><span data-ar="التوليد الثلاثي (CCHP)" data-en="Tri-generation (CCHP)">التوليد الثلاثي (CCHP)</span></a></li>
         </ul>
       </div>
 
@@ -345,7 +350,8 @@
           <li><span class="k" data-ar="بلجيكا" data-en="Belgium">بلجيكا</span><a href="tel:+32492409022" dir="ltr">+32 492 409 022</a></li>
           <li><span class="k" data-ar="تركيا" data-en="Türkiye">تركيا</span><a href="tel:+905346581577" dir="ltr">+90 534 658 1577</a></li>
           <li><span class="k" data-ar="البريد" data-en="Email">البريد</span><a href="mailto:Mahmood@albahranygroup.com" dir="ltr">Mahmood@albahranygroup.com</a></li>
-          <li><a href="https://wa.me/9647734114077" target="_blank" rel="noopener" data-ar="واتساب" data-en="WhatsApp">واتساب</a></li>
+          <li><span class="k" data-ar="المقر" data-en="Office">المقر</span><span data-ar="بغداد، العراق" data-en="Baghdad, Iraq">بغداد، العراق</span></li>
+          <li><a href="https://wa.me/9647734114077" target="_blank" rel="noopener" data-ar="مراسلة عبر واتساب" data-en="Message us on WhatsApp">مراسلة عبر واتساب</a></li>
         </ul>
       </div>
     </div>
@@ -369,6 +375,6 @@ window.SITE_I18N = {
   }
 };
 </script>
-<script src="assets/site.js?v=20261029b"></script>
+<script src="assets/site.js?v=20261101"></script>
 </body>
 </html>
