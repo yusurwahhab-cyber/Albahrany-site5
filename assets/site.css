@@ -617,6 +617,14 @@ html[dir="rtl"] .page-head::after {
   border-inline-start: 3px solid var(--brand); background: var(--bg-tint);
   color: var(--ink); font-size: 15px;
 }
+.page-sec .prose { max-width: 72ch; color: var(--text); font-size: var(--fs-md); }
+.page-sec .prose + .prose, .page-sec * + .prose { margin-top: var(--s4); }
+.page-sec .sub-title { margin-top: var(--s7); font-size: var(--fs-h3); }
+.page-sec .sub-title + * { margin-top: var(--s4); }
+.page-sec .prose + .benefits, .page-sec .prose + .tiers-wrap, .page-sec .prose + .offer-list { margin-top: var(--s6); }
+.prose a, .note a, .step p a { color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover, .note a:hover, .step p a:hover { color: var(--brand-hover); }
+.compare-wrap .tiers tbody th { width: 22%; }
 .tiers-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-md); -webkit-overflow-scrolling: touch; }
 .tiers { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; font-size: var(--fs-sm); }
 .tiers caption { padding: var(--s3) var(--s4); color: var(--muted); text-align: start; caption-side: top; border-bottom: 1px solid var(--line); }
