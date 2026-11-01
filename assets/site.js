@@ -82,7 +82,43 @@
     document.addEventListener('keydown', function(e){
       if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') { setMenu(false); menuBtn.focus(); }
     });
-    window.addEventListener('resize', function(){ if (window.innerWidth > 1080) setMenu(false); });
+    window.addEventListener('resize', function(){ if (window.innerWidth >= 1200) setMenu(false); });
+  }
+
+  /* ---- services dropdown (desktop popover, inline list in the mobile drawer) ---- */
+  var dropBtns = document.querySelectorAll('.nav-drop-btn');
+  function closeDrops(except){
+    for (var d = 0; d < dropBtns.length; d++) {
+      if (dropBtns[d] === except) continue;
+      dropBtns[d].setAttribute('aria-expanded', 'false');
+      var p = document.getElementById(dropBtns[d].getAttribute('aria-controls'));
+      if (p) p.classList.remove('is-open');
+    }
+  }
+  for (var db = 0; db < dropBtns.length; db++) {
+    dropBtns[db].addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = this.getAttribute('aria-expanded') !== 'true';
+      closeDrops(this);
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var panel = document.getElementById(this.getAttribute('aria-controls'));
+      if (panel) panel.classList.toggle('is-open', open);
+    });
+  }
+  document.addEventListener('click', function(e){
+    if (window.innerWidth >= 1200 && !e.target.closest('.nav-has-drop')) closeDrops(null);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    for (var d = 0; d < dropBtns.length; d++) {
+      if (dropBtns[d].getAttribute('aria-expanded') === 'true') { closeDrops(null); dropBtns[d].focus(); }
+    }
+  });
+
+  /* ---- old homepage anchors that now live on their own pages ---- */
+  var moved = { '#process': 'about.html#process', '#products': 'central-cooling.html#products' };
+  if (document.body.getAttribute('data-page') === 'home' && moved[location.hash]) {
+    location.replace(moved[location.hash]);
   }
 
   /* ---- project sector filter ---- */
