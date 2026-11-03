@@ -1,0 +1,72 @@
+<!--page
+{
+  "out": "projects.html",
+  "priority": 0.8,
+  "nav": "projects",
+  "crumbs": [{"ar": "المشاريع", "en": "Projects", "href": "projects.html"}],
+  "title": {
+    "ar": "المشاريع المنجزة — مستشفيات ووزارات ومنشآت عامة في العراق | مجموعة البحراني",
+    "en": "Delivered Projects — Hospitals, Ministries and Public Buildings in Iraq | Albahrany Group"
+  },
+  "desc": {
+    "ar": "مشاريع تبريد مركزي نفّذتها مجموعة البحراني في العراق مع سعة كل منظومة: مستشفى الإمام الصادق 5,000 طن تبريد، ووزارة المالية 1,500 طن تبريد، ومخازن أدوية كيماديا، ومول الواحة، وغيرها.",
+    "en": "Central cooling projects delivered by Albahrany Group in Iraq, with each plant’s capacity: Imam Al-Sadiq Hospital 5,000 TR, Ministry of Finance 1,500 TR, Kimadia warehouses, Al-Waha Mall and more."
+  },
+  "vars": {
+    "cta_id": "cta",
+    "cta_h_ar": "مشروعك القادم يبدأ بدراسة فنية",
+    "cta_h_en": "Your next project starts with a technical study",
+    "cta_p_ar": "أرسل تفاصيل مشروعك، ويدرس فريقنا المتطلبات ويقدّم العرض الفني والتجاري المناسب.",
+    "cta_p_en": "Send your project details and our team will review the requirements and come back with a technical and commercial proposal."
+  },
+  "schema": [
+    {"@type": "CollectionPage", "@id": "{{url}}#page", "url": "{{url}}", "name": "المشاريع المنجزة — مجموعة البحراني", "isPartOf": {"@id": "https://albahranygroup.com/#website"}, "about": {"@id": "https://albahranygroup.com/#organization"}}
+  ]
+}
+-->
+<section class="page-head" aria-labelledby="pageTitle">
+  <div class="wrap ph-grid no-media">
+    <div class="ph-copy">
+      <!--crumbs-->
+      <h1 id="pageTitle" data-en="Delivered Projects">المشاريع المنجزة</h1>
+      <p class="kicker" data-en="Hospitals, pharmaceutical stores, ministries, public and commercial buildings">مستشفيات ومخازن أدوية ووزارات ومنشآت عامة وتجارية</p>
+      <p class="lede" data-en="A selection of projects delivered by the group across Iraq’s governorates, with the cooling capacity of each. Hospitals and pharmaceutical stores need dedicated cooling for operating theatres, sterile zones and temperature-controlled storage.">مختارات من مشاريع نفّذتها المجموعة في مختلف محافظات العراق، مع سعة منظومة التبريد لكل منها. المستشفيات ومخازن الأدوية تتطلب تبريداً خاصاً لغرف العمليات والمناطق المعقّمة والتخزين الدوائي بحرارة مضبوطة.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="list" aria-labelledby="listTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-sys="hvac" data-en="Central cooling &amp; HVAC">التبريد والتكييف المركزي</p>
+      <h2 id="listTitle" data-en="Central cooling and HVAC projects">مشاريع التبريد والتكييف المركزي</h2>
+    </div>
+    <div class="filters" role="group" aria-label="تصفية المشاريع حسب القطاع" data-en-label="Filter projects by sector">
+      <button class="filter-btn" type="button" data-filter="all" aria-pressed="true" data-en="All projects">كل المشاريع</button>
+      <button class="filter-btn" type="button" data-filter="health" aria-pressed="false" data-en="Healthcare &amp; pharma">الصحة والأدوية</button>
+      <button class="filter-btn" type="button" data-filter="gov" aria-pressed="false" data-en="Government">المؤسسات الحكومية</button>
+      <button class="filter-btn" type="button" data-filter="public" aria-pressed="false" data-en="Public &amp; commercial">المنشآت العامة والتجارية</button>
+    </div>
+    <p class="filter-status" id="filterStatus" role="status" aria-live="polite"></p>
+    <!--include:projects-table-->
+  </div>
+</section>
+
+<section class="sec sec-alt" id="photos" aria-labelledby="photosTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="photosTitle" data-en="From our sites">من مواقع العمل</h2>
+      <p class="lead" data-en="Photographs taken on the group’s work sites.">صور من مواقع عمل المجموعة.</p>
+    </div>
+    <ul class="gallery">
+      <li><figure><x-photo name="site-chiller-room" sizes="(max-width: 480px) 100vw, (max-width: 860px) 50vw, 400px" alt-ar="شلرات مبرّدة بالماء في غرفة المكائن" alt-en="Water-cooled chillers in a plant room"><figcaption data-en="Chiller room">غرفة شلرات</figcaption></figure></li>
+      <li><figure><x-photo name="site-pump-room" sizes="(max-width: 480px) 100vw, (max-width: 860px) 50vw, 400px" alt-ar="غرفة مضخات المياه وخزانات التمدد في أحد مواقع العمل" alt-en="Water pump room with expansion tanks on one of our sites"><figcaption data-en="Pump room">غرفة مضخات</figcaption></figure></li>
+      <li><figure><x-photo name="site-ductwork" sizes="(max-width: 480px) 100vw, (max-width: 860px) 50vw, 400px" alt-ar="شبكة دكت معلّقة قيد التنفيذ في أحد مواقع العمل" alt-en="Suspended ductwork being installed on one of our sites"><figcaption data-en="Ductwork installation">تنفيذ شبكة الدكت</figcaption></figure></li>
+      <li><figure><x-photo name="site-fire-pump-room" sizes="(max-width: 480px) 100vw, (max-width: 860px) 50vw, 400px" alt-ar="غرفة مضخات وصمامات نظام إطفاء الحريق مع مقاييس الضغط في أحد مواقع العمل" alt-en="Fire pump and valve room with pressure gauges on one of our sites"><figcaption data-en="Fire pump room">غرفة مضخات الحريق</figcaption></figure></li>
+      <li><figure><x-photo name="site-fire-piping" sizes="(max-width: 480px) 100vw, (max-width: 860px) 50vw, 400px" alt-ar="تمديد مواسير إطفاء الحريق وحواملها على السقف" alt-en="Fire protection piping and supports along the ceiling"><figcaption data-en="Fire protection piping">شبكة مواسير الإطفاء</figcaption></figure></li>
+      <li><figure><x-photo name="site-electrical-panels" sizes="(max-width: 480px) 100vw, (max-width: 860px) 50vw, 400px" alt-ar="لوحات التوزيع والسيطرة الكهربائية وترييات الكيبلات في أحد مواقع العمل" alt-en="Distribution and control panels with cable trays on one of our sites"><figcaption data-en="Distribution and control panels">لوحات التوزيع والسيطرة</figcaption></figure></li>
+    </ul>
+  </div>
+</section>
+
+<!--include:cta-->

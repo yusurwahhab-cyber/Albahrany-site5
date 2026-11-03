@@ -1,0 +1,4 @@
+# GitHub Pages (Jekyll) — keep project notes out of the published site.
+# Folders starting with "_" (such as _build/) and dot-folders (.claude/) are already excluded.
+exclude:
+  - CLAUDE.md

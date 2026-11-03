@@ -1,0 +1,196 @@
+<!--page
+{
+  "out": "contact.html",
+  "priority": 0.8,
+  "nav": "contact",
+  "body_class": "page-contact",
+  "scripts": ["form-config.js", "contact-form.js"],
+  "crumbs": [{"ar": "تواصل معنا", "en": "Contact", "href": "contact.html"}],
+  "title": {
+    "ar": "تواصل مع مجموعة البحراني — طلب دراسة فنية أو عرض سعر",
+    "en": "Contact Albahrany Group — Request a Technical Study or Quotation"
+  },
+  "desc": {
+    "ar": "تواصل مع مجموعة البحراني بالهاتف أو واتساب أو البريد الإلكتروني، أو جهّز طلب دراسة فنية أو عرض سعر لمنظومات التبريد المركزي ومكافحة الحرائق وإدارة البنايات.",
+    "en": "Contact Albahrany Group by phone, WhatsApp or email, or prepare a request for a technical study or quotation for central cooling, fire protection and building management systems."
+  },
+  "schema": [
+    {"@type": "ContactPage", "@id": "{{url}}#page", "url": "{{url}}", "name": "تواصل مع مجموعة البحراني", "isPartOf": {"@id": "https://albahranygroup.com/#website"}, "about": {"@id": "https://albahranygroup.com/#organization"}}
+  ]
+}
+-->
+<section class="page-head" aria-labelledby="pageTitle">
+  <div class="wrap ph-grid no-media">
+    <div class="ph-copy">
+      <!--crumbs-->
+      <h1 id="pageTitle" data-en="Contact our team">تواصل مع فريقنا</h1>
+      <p class="kicker" data-en="Request a technical study or quotation">طلب دراسة فنية أو عرض سعر</p>
+      <p class="lede" data-en="Call us, message us on WhatsApp or send an email — or use the request form on this page. Our team reviews the requirements and comes back with a technical and commercial proposal.">اتصل بنا، أو راسلنا عبر واتساب أو البريد الإلكتروني، أو استخدم نموذج الطلب في هذه الصفحة. يدرس فريقنا المتطلبات ويقدّم العرض الفني والتجاري المناسب.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact" aria-label="قنوات التواصل ونموذج الطلب" data-en-label="Contact details and request form">
+  <div class="wrap contact-grid">
+
+    <div>
+      <h2 data-en="Ways to reach us">قنوات التواصل</h2>
+      <ul class="methods">
+        <li class="method">
+          <svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>
+          <span class="method-k" data-en="Phone">الهاتف</span>
+          <ul class="phones">
+            <li><span class="k" data-en="Iraq">العراق</span><a class="method-v" href="tel:+9647734114077" dir="ltr">+964 773 411 4077</a></li>
+            <li><span class="k" data-en="Belgium">بلجيكا</span><a class="method-v" href="tel:+32492409022" dir="ltr">+32 492 409 022</a></li>
+            <li><span class="k" data-en="Türkiye">تركيا</span><a class="method-v" href="tel:+905346581577" dir="ltr">+90 534 658 1577</a></li>
+          </ul>
+        </li>
+        <li class="method">
+          <svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>
+          <span class="method-k" data-en="WhatsApp">واتساب</span>
+          <a class="method-v" href="https://wa.me/9647734114077" target="_blank" rel="noopener" dir="ltr">+964 773 411 4077</a>
+          <span class="method-d" data-en="Opens a WhatsApp chat with our team.">يفتح محادثة واتساب مع فريقنا.</span>
+        </li>
+        <li class="method">
+          <svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>
+          <span class="method-k" data-en="Email">البريد الإلكتروني</span>
+          <a class="method-v" href="mailto:Mahmood@albahranygroup.com" dir="ltr">Mahmood@albahranygroup.com</a>
+        </li>
+        <li class="method">
+          <svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>
+          <span class="method-k" data-en="Office">المقر</span>
+          <span class="method-v" data-en="Baghdad, Iraq">بغداد، العراق</span>
+        </li>
+      </ul>
+
+      <div class="callout" style="margin-top:24px">
+        <p><strong data-en="To get a faster, more precise proposal">لعرض أسرع وأدق</strong></p>
+        <p data-en="The clearer the first information, the faster and more precise the proposal. If you can, include:">كلما كانت المعلومات الأولية أوضح، كان العرض أدق وأسرع. أرسل إن أمكن:</p>
+        <ul class="prep-list">
+          <li data-en="The project location">موقع المشروع</li>
+          <li data-en="The building type">نوع البناية</li>
+          <li data-en="The area or approximate load">المساحة أو الحمل التقريبي</li>
+          <li data-en="Drawings, specifications or a BOQ, if available">المخططات أو المواصفات أو جدول الكميات إن توفرت</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h2 id="formTitle" data-en="Request a technical study or quotation">طلب دراسة فنية أو عرض سعر</h2>
+
+      <form id="inquiryForm" novalidate aria-labelledby="formTitle">
+        <div class="form-notice notice-offline" data-mode="offline">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v5.5M12 16.5v.01"/></g></svg>
+          <div>
+            <strong data-en="This form does not send messages automatically">هذا النموذج لا يرسل الرسائل تلقائياً</strong>
+            <p data-en="When you press “Prepare my request”, we check your details and turn them into a ready-made message. You then send it to us yourself — by WhatsApp or email. Nothing is sent, and nothing is stored on this website, until you do.">عند الضغط على «جهّز طلبي» نتحقق من بياناتك ونحوّلها إلى رسالة جاهزة، ثم ترسلها أنت إلينا عبر واتساب أو البريد الإلكتروني. لا يُرسَل شيء ولا يُخزَّن شيء على هذا الموقع قبل أن ترسلها بنفسك.</p>
+          </div>
+        </div>
+        <div class="form-notice notice-online" data-mode="online" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-mail"/></svg>
+          <div>
+            <strong data-en="Your request goes straight to our team">يصل طلبك مباشرة إلى فريقنا</strong>
+            <p data-en="When you press “Send request”, your details are sent to our team, who review the requirements and come back to you with a technical and commercial proposal.">عند الضغط على «أرسل الطلب» تصل بياناتك إلى فريقنا، فيدرس المتطلبات ويعود إليك بالعرض الفني والتجاري المناسب.</p>
+          </div>
+        </div>
+
+        <p class="form-status" id="formStatus" role="alert" hidden></p>
+        <p class="note" data-en="Fields marked * are required.">الحقول المعلّمة بـ * مطلوبة.</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="fName"><span data-en="Full name">الاسم الكامل</span><span class="req" aria-hidden="true">*</span></label>
+            <input id="fName" name="name" type="text" autocomplete="name" aria-required="true" aria-describedby="fNameErr">
+            <p class="field-error" id="fNameErr" hidden></p>
+          </div>
+          <div class="field">
+            <label for="fOrg"><span data-en="Organisation or company">الجهة أو الشركة</span><span class="opt" data-en="(optional)">(اختياري)</span></label>
+            <input id="fOrg" name="organisation" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="fPhone"><span data-en="Phone or WhatsApp">رقم الهاتف أو واتساب</span><span class="req" aria-hidden="true">*</span></label>
+            <input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="ltr-input" dir="ltr" aria-required="true" aria-describedby="fPhoneErr">
+            <p class="field-error" id="fPhoneErr" hidden></p>
+          </div>
+          <div class="field">
+            <label for="fEmail"><span data-en="Email">البريد الإلكتروني</span><span class="opt" data-en="(optional)">(اختياري)</span></label>
+            <input id="fEmail" name="email" type="email" inputmode="email" autocomplete="email" class="ltr-input" dir="ltr" aria-describedby="fEmailErr">
+            <p class="field-error" id="fEmailErr" hidden></p>
+          </div>
+          <div class="field full">
+            <label for="fLocation"><span data-en="Project location (governorate or city)">موقع المشروع (المحافظة أو المدينة)</span><span class="opt" data-en="(optional)">(اختياري)</span></label>
+            <input id="fLocation" name="location" type="text" autocomplete="address-level1">
+          </div>
+          <div class="field full">
+            <label for="fService"><span data-en="System or service required">المنظومة أو الخدمة المطلوبة</span><span class="req" aria-hidden="true">*</span></label>
+            <select id="fService" name="service" aria-required="true" aria-describedby="fServiceErr">
+              <option value="" data-en="Choose…">اختر…</option>
+              <option value="hvac" data-en="Central cooling &amp; HVAC (chillers, VRF, AHU)">التبريد والتكييف المركزي (شلرات، VRF، وحدات مناولة الهواء)</option>
+              <option value="fire" data-en="Fire protection and FM-200 suppression">مكافحة الحرائق والإطفاء بالغاز FM-200</option>
+              <option value="bms" data-en="Building management (BMS)">إدارة البنايات (BMS)</option>
+              <option value="integrated" data-en="All three systems, integrated">تنفيذ متكامل للمنظومات الثلاث</option>
+              <option value="refrigeration" data-en="Industrial &amp; commercial refrigeration (cold rooms, cold stores, cooling towers)">التبريد الصناعي والتجاري (غرف ومخازن التبريد، أبراج التبريد)</option>
+              <option value="maintenance" data-en="Maintenance contract or spare parts">عقد صيانة أو قطع غيار أصلية</option>
+              <option value="other" data-en="Other service (TAB, energy efficiency, IAQ, tri-generation…)">خدمة أخرى (الاختبار والموازنة، كفاءة الطاقة، جودة الهواء، التوليد الثلاثي…)</option>
+            </select>
+            <p class="field-error" id="fServiceErr" hidden></p>
+          </div>
+          <div class="field full">
+            <label for="fDetails"><span data-en="Project details">تفاصيل المشروع</span><span class="req" aria-hidden="true">*</span></label>
+            <span class="hint" id="fDetailsHint" data-en="For example: building type, area or approximate load, and whether drawings or a BOQ are available.">مثلاً: نوع البناية، والمساحة أو الحمل التقريبي، وهل تتوفر مخططات أو جدول كميات.</span>
+            <textarea id="fDetails" name="details" rows="6" aria-required="true" aria-describedby="fDetailsHint fDetailsErr"></textarea>
+            <p class="field-error" id="fDetailsErr" hidden></p>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="fWebsite">Website</label>
+            <input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" data-mode="offline"><span data-en="Prepare my request">جهّز طلبي</span></button>
+          <button class="btn btn-primary" type="submit" data-mode="online" hidden><span data-en="Send request">أرسل الطلب</span></button>
+          <p class="form-privacy" data-mode="offline" data-en="Your details stay in your browser. They reach us only if you send the prepared message.">تبقى بياناتك في متصفحك، ولا تصلنا إلا إذا أرسلت الرسالة الجاهزة.</p>
+          <p class="form-privacy" data-mode="online" hidden data-en="Your details are used only to reply to your request.">تُستخدم بياناتك للرد على طلبك فقط.</p>
+        </div>
+      </form>
+
+      <div class="result" id="inquiryResult" tabindex="-1" hidden>
+        <div class="result-head" data-state="pending">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v5.5M12 16.5v.01"/></g></svg>
+          <div>
+            <h2 id="resultTitlePending" data-en="Your request is ready — it has not been sent yet">طلبك جاهز — لم يُرسَل بعد</h2>
+            <p data-en="Send it to us with one of the buttons below. It reaches our team only when you send it.">أرسله إلينا بأحد الأزرار أدناه. لا يصل إلى فريقنا إلا عندما ترسله أنت.</p>
+          </div>
+        </div>
+        <div class="result-head" data-state="sent" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-check"/></svg>
+          <div>
+            <h2 id="resultTitleSent" data-en="Your request has been sent">تم إرسال طلبك</h2>
+            <p data-en="Our team received your request and will review the requirements and come back to you with a proposal.">استلم فريقنا طلبك، وسيدرس المتطلبات ويعود إليك بالعرض المناسب.</p>
+          </div>
+        </div>
+        <div class="result-head" data-state="failed" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="m9 9 6 6M15 9l-6 6"/></g></svg>
+          <div>
+            <h2 id="resultTitleFailed" data-en="We couldn’t send your request">تعذّر إرسال طلبك</h2>
+            <p data-en="Nothing was delivered. Please try again, or send it yourself by WhatsApp or email.">لم يصل شيء. حاول مرة أخرى، أو أرسله بنفسك عبر واتساب أو البريد الإلكتروني.</p>
+          </div>
+        </div>
+
+        <label class="visually-hidden" for="resultPreview" data-en="Your request text">نص طلبك</label>
+        <textarea class="result-preview" id="resultPreview" readonly></textarea>
+
+        <div class="result-actions">
+          <a class="btn wa-btn" id="resultWa" href="https://wa.me/9647734114077" target="_blank" rel="noopener" data-state="pending failed"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-en="Send via WhatsApp">أرسل عبر واتساب</span></a>
+          <a class="btn btn-primary" id="resultMail" href="mailto:Mahmood@albahranygroup.com" data-state="pending failed"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span data-en="Send by email">أرسل بالبريد الإلكتروني</span></a>
+          <button class="btn btn-secondary" id="resultCopy" type="button" data-state="pending sent failed"><span data-en="Copy text">انسخ النص</span></button>
+          <button class="btn btn-secondary" id="resultEdit" type="button" data-state="pending failed"><span data-en="Edit request">عدّل الطلب</span></button>
+          <button class="btn btn-secondary" id="resultNew" type="button" data-state="sent"><span data-en="New request">طلب جديد</span></button>
+        </div>
+        <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+  </div>
+</section>
