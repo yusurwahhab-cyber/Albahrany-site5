@@ -687,7 +687,7 @@ html[lang="en"] .footer-col h2 { font-family: var(--font-mono); font-size: .74re
     border-top: 1px solid var(--line); box-shadow: 0 -6px 18px rgba(10, 31, 49, .08);
   }
   @supports (backdrop-filter: blur(8px)) { .quick-contact { background: rgba(255, 255, 255, .88); backdrop-filter: saturate(1.4) blur(10px); } }
-  .quick-contact a { display: flex; align-items: center; justify-content: center; gap: .45em; min-height: 46px; border-radius: var(--r); font-size: .9rem; font-weight: 500; text-decoration: none; color: var(--ink); border: 1.5px solid var(--line-2); background: #fff; }
+  .quick-contact a { display: flex; align-items: center; justify-content: center; gap: .45em; min-height: 46px; padding-inline: 6px; text-align: center; line-height: 1.2; border-radius: var(--r); font-size: .9rem; font-weight: 500; text-decoration: none; color: var(--ink); border: 1.5px solid var(--line-2); background: #fff; }
   .quick-contact .qc-call { background: var(--navy-900); border-color: var(--navy-900); color: #fff; }
   body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
   body.nav-open .quick-contact, body.page-contact .quick-contact .qc-quote { display: none; }

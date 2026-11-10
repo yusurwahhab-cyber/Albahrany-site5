@@ -238,6 +238,9 @@ def build_page(meta, layout):
     page = page.replace("<!--head-->", "\n".join(head))
 
     page = add_kurdish(page)
+    # keep "FM-200" on one line (a plain hyphen may break inside right-to-left text)
+    head_part, sep, body_part = page.partition("<body")
+    page = head_part + sep + body_part.replace("FM-200", "FM\u2011200")
     t = dict(t, ku=ku(t["en"]) or t["ar"])
     d = dict(d, ku=ku(d["en"]) or d["ar"])
     i18n = {"title": t, "desc": d}
