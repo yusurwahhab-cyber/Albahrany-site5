@@ -10,6 +10,7 @@ Purpose: every page reads naturally in Arabic and English, behaves correctly in 
 ## How language works today
 
 - Default `lang="ar" dir="rtl"`; English is a client-side toggle on the same URL. Arabic is the element's own text; English goes in `data-en` (plus `data-en-label`, `-alt`, `-placeholder`, `-title`). `assets/site.js` captures the Arabic automatically. An element with `data-en` must contain text only (no child tags) — wrap icons and text separately. Preference is stored in `localStorage` key `ab-lang`. `python3 _build/build.py --check` flags any Arabic text without English.
+- Kurdish (Sorani, `lang="ckb"`, RTL) is a third client-side language. Its text is in `_build/i18n/ku.json`, keyed by the English string; the build writes `data-ku` / `data-ku-*`. When English copy changes, update the matching key there. JS strings carry `ar`/`en`/`ku`. Kurdish follows Arabic layout rules (RTL, no uppercase/letter-spacing) and needs native-speaker review before being treated as final.
 - Page title and meta description come from the `title`/`desc` pair in each page's JSON header in `_build/pages/`. There are no separate English URLs or `hreflang`.
 - Read `assets/site.js` and a service page before changing any of this. If the owner wants English to be indexable (separate URLs), that is a major decision: present it, with SEO consequences (see `albahrany-seo-migration-deploy`), before doing anything.
 

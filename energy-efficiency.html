@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>try{if(localStorage.getItem('ab-lang')==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}document.documentElement.classList.add('js');</script>
+<script>(function(d){try{var l=localStorage.getItem('ab-lang');if(l==='en'){d.lang='en';d.dir='ltr';}else if(l==='ku'){d.lang='ckb';}}catch(e){}d.classList.add('js');})(document.documentElement);</script>
 <title>حلول رفع كفاءة الطاقة لمنظومات التبريد — مجموعة البحراني</title>
 <meta name="description" content="تدقيق الطاقة، وتحديث المنظومات، واسترجاع الحرارة، ومحركات السرعة المتغيّرة، وتحسين تشغيل غرف الشلرات ومنظومة إدارة البناية لخفض استهلاك التبريد.">
 <link rel="canonical" href="https://albahranygroup.com/energy-efficiency.html">
@@ -71,7 +71,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261103">
+<link rel="stylesheet" href="assets/site.css?v=20261110">
 </head>
 <body class="theme-bms">
 
@@ -122,7 +122,14 @@
     </nav>
 
     <div class="header-actions">
-      <button class="lang-btn" id="langBtn" type="button" lang="en">English</button>
+      <div class="lang">
+        <button class="lang-btn" id="langBtn" type="button" aria-expanded="false" aria-controls="langMenu"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-cur" id="langCur" aria-hidden="true">AR</span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <ul class="lang-menu" id="langMenu">
+          <li><button type="button" data-set-lang="ar" lang="ar" dir="rtl">العربية</button></li>
+          <li><button type="button" data-set-lang="en" lang="en" dir="ltr">English</button></li>
+          <li><button type="button" data-set-lang="ku" lang="ckb" dir="rtl">کوردی</button></li>
+        </ul>
+      </div>
       <a class="btn btn-primary btn-sm header-cta" href="contact.html" data-nav="contact"><span data-en="Request a quote">اطلب عرض سعر</span></a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="فتح القائمة" data-en-label="Open menu"><span class="menu-bars" aria-hidden="true"></span></button>
     </div>
@@ -272,11 +279,15 @@
   <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
+  <symbol id="i-alarm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14a7 7 0 0 1 14 0v3H5z"/><path d="M3 20h18M12 4V2M4.6 6.6 3.2 5.2M19.4 6.6l1.4-1.4"/><path d="M12 10.5v3.5"/></g></symbol>
+  <symbol id="i-bms" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 6V3M15 6V3M9 21v-3M15 21v-3M6 9H3M6 15H3M21 9h-3M21 15h-3"/></g></symbol>
+  <symbol id="i-fan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2"/><circle cx="12" cy="12" r="1.6"/><path d="M12 10.4c-.6-2.6.2-4.6 2.4-5 1.6.4 1.6 2.6-.6 4.4M13.6 12c2.6-.6 4.6.2 5 2.4-.4 1.6-2.6 1.6-4.4-.6M12 13.6c.6 2.6-.2 4.6-2.4 5-1.6-.4-1.6-2.6.6-4.4M10.4 12c-2.6.6-4.6-.2-5-2.4.4-1.6 2.6-1.6 4.4.6"/></g></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
 </svg>
 
-<script>window.SITE_I18N = {"title": {"ar": "حلول رفع كفاءة الطاقة لمنظومات التبريد — مجموعة البحراني", "en": "Energy Efficiency Solutions for Cooling Systems — Albahrany Group"}, "desc": {"ar": "تدقيق الطاقة، وتحديث المنظومات، واسترجاع الحرارة، ومحركات السرعة المتغيّرة، وتحسين تشغيل غرف الشلرات ومنظومة إدارة البناية لخفض استهلاك التبريد.", "en": "Energy audits, system retrofits, heat recovery, variable frequency drives, chiller plant optimization and BMS tuning to cut cooling energy use."}};</script>
-<script src="assets/site.js?v=20261103" defer></script>
+<script>window.SITE_I18N = {"title": {"ar": "حلول رفع كفاءة الطاقة لمنظومات التبريد — مجموعة البحراني", "en": "Energy Efficiency Solutions for Cooling Systems — Albahrany Group", "ku": "حلول رفع كفاءة الطاقة لمنظومات التبريد — مجموعة البحراني"}, "desc": {"ar": "تدقيق الطاقة، وتحديث المنظومات، واسترجاع الحرارة، ومحركات السرعة المتغيّرة، وتحسين تشغيل غرف الشلرات ومنظومة إدارة البناية لخفض استهلاك التبريد.", "en": "Energy audits, system retrofits, heat recovery, variable frequency drives, chiller plant optimization and BMS tuning to cut cooling energy use.", "ku": "تدقيق الطاقة، وتحديث المنظومات، واسترجاع الحرارة، ومحركات السرعة المتغيّرة، وتحسين تشغيل غرف الشلرات ومنظومة إدارة البناية لخفض استهلاك التبريد."}};</script>
+<script src="assets/site.js?v=20261110" defer></script>
 
 </body>
 </html>

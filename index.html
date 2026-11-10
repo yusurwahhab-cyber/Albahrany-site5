@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>try{if(localStorage.getItem('ab-lang')==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}document.documentElement.classList.add('js');</script>
+<script>(function(d){try{var l=localStorage.getItem('ab-lang');if(l==='en'){d.lang='en';d.dir='ltr';}else if(l==='ku'){d.lang='ckb';}}catch(e){}d.classList.add('js');})(document.documentElement);</script>
 <title>مجموعة البحراني — التبريد المركزي ومكافحة الحرائق وإدارة البنايات في العراق</title>
 <meta name="description" content="مجموعة البحراني: تصميم وتنفيذ وصيانة منظومات التبريد والتكييف المركزي ومكافحة الحرائق وإدارة البنايات (BMS) في العراق منذ 2002. وكالة حصرية لشركة Euroclima وموزّع معتمد لشركة Baltimore Aircoil.">
 <link rel="canonical" href="https://albahranygroup.com/">
@@ -84,7 +84,8 @@
       "alternateName": "مجموعة البحراني",
       "inLanguage": [
         "ar",
-        "en"
+        "en",
+        "ckb"
       ],
       "publisher": {
         "@id": "https://albahranygroup.com/#organization"
@@ -101,7 +102,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261103">
+<link rel="stylesheet" href="assets/site.css?v=20261110">
 </head>
 <body class="page-home">
 
@@ -152,7 +153,14 @@
     </nav>
 
     <div class="header-actions">
-      <button class="lang-btn" id="langBtn" type="button" lang="en">English</button>
+      <div class="lang">
+        <button class="lang-btn" id="langBtn" type="button" aria-expanded="false" aria-controls="langMenu"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-cur" id="langCur" aria-hidden="true">AR</span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <ul class="lang-menu" id="langMenu">
+          <li><button type="button" data-set-lang="ar" lang="ar" dir="rtl">العربية</button></li>
+          <li><button type="button" data-set-lang="en" lang="en" dir="ltr">English</button></li>
+          <li><button type="button" data-set-lang="ku" lang="ckb" dir="rtl">کوردی</button></li>
+        </ul>
+      </div>
       <a class="btn btn-primary btn-sm header-cta" href="contact.html" data-nav="contact"><span data-en="Request a quote">اطلب عرض سعر</span></a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="فتح القائمة" data-en-label="Open menu"><span class="menu-bars" aria-hidden="true"></span></button>
     </div>
@@ -162,27 +170,32 @@
 
 <main id="main">
 <section class="hero" aria-labelledby="heroTitle">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow" data-en="Building services engineering · Iraq, since 2002">هندسة خدمات البنايات · العراق منذ 2002</p>
-        <h1 id="heroTitle"><span data-en="Central cooling, fire protection and building management">التبريد المركزي ومكافحة الحرائق وإدارة البنايات</span><span class="h1-sub" data-en="Designed, installed and maintained by one accountable contractor">تصميم وتنفيذ وصيانة من جهة واحدة مسؤولة</span></h1>
-        <p class="hero-lede" data-en="We design, install and maintain central cooling, fire protection and building management systems for hospitals, ministries and facilities across Iraq.">نصمّم وننفّذ ونصين أنظمة التبريد المركزي ومكافحة الحرائق وإدارة البنايات للمستشفيات والوزارات والمنشآت في العراق.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="contact.html"><span data-en="Request a technical study or quote">اطلب دراسة فنية أو عرض سعر</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-secondary" href="tel:+9647734114077"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">+964 773 411 4077</span></a>
-        </div>
-        <ul class="hero-sys" aria-label="الأنظمة الرئيسية" data-en-label="Main systems">
-          <li data-sys="hvac"><a href="central-cooling.html"><span class="sys-code">HVAC · 01</span><span data-en="Central Cooling &amp; HVAC">التبريد والتكييف المركزي</span></a></li>
-          <li data-sys="fire"><a href="fire-protection.html"><span class="sys-code">FIRE · 02</span><span data-en="Fire Protection">مكافحة الحرائق</span></a></li>
-          <li data-sys="bms"><a href="building-management.html"><span class="sys-code">BMS · 03</span><span data-en="Building Management">إدارة البنايات</span></a></li>
-        </ul>
+  <figure class="hero-bg">
+    <picture><source type="image/webp" srcset="images/band-chiller-room-800.webp 800w, images/band-chiller-room-1200.webp 1200w, images/band-chiller-room-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 64vw"><img src="images/band-chiller-room.jpg" width="1600" height="892" alt="غرفة شلرات مع أنابيب المياه المبرّدة في أحد مواقع عمل مجموعة البحراني" data-en-alt="Chiller plant room with chilled-water piping on an Albahrany Group site" fetchpriority="high" decoding="async"></picture>
+    <figcaption class="hero-cap" data-en="Chiller plant room — from one of our sites">غرفة شلرات — من مواقع عمل المجموعة</figcaption>
+  </figure>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow" data-en="Building services engineering · Iraq, since 2002">هندسة خدمات البنايات · العراق منذ 2002</p>
+      <h1 id="heroTitle"><span data-en="Central cooling, fire protection and building management">التبريد المركزي ومكافحة الحرائق وإدارة البنايات</span><span class="h1-sub" data-en="Designed, installed and maintained by one accountable contractor">تصميم وتنفيذ وصيانة من جهة واحدة مسؤولة</span></h1>
+      <p class="hero-lede" data-en="We design, install and maintain central cooling, fire protection and building management systems for hospitals, ministries and facilities across Iraq.">نصمّم وننفّذ ونصين أنظمة التبريد المركزي ومكافحة الحرائق وإدارة البنايات للمستشفيات والوزارات والمنشآت في العراق.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="contact.html"><span data-en="Request a technical study or quote">اطلب دراسة فنية أو عرض سعر</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-secondary" href="tel:+9647734114077"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">+964 773 411 4077</span></a>
       </div>
-      <figure class="hero-media">
-        <picture><source type="image/webp" srcset="images/band-chiller-room-800.webp 800w, images/band-chiller-room-1200.webp 1200w, images/band-chiller-room-1600.webp 1600w" sizes="(max-width: 960px) 100vw, 46vw"><img src="images/band-chiller-room.jpg" width="1600" height="892" alt="غرفة شلرات مع أنابيب المياه المبرّدة في أحد مواقع عمل مجموعة البحراني" data-en-alt="Chiller plant room with chilled-water piping on an Albahrany Group site" fetchpriority="high" decoding="async"></picture>
-        <figcaption data-en="Chiller plant room — from one of our sites">غرفة شلرات — من مواقع عمل المجموعة</figcaption>
-      </figure>
     </div>
+  </div>
+  <div class="wrap">
+    <ul class="hero-sys" aria-label="الأنظمة الرئيسية" data-en-label="Main systems">
+      <li data-sys="hvac"><a href="central-cooling.html"><span class="sys-code">HVAC · 01</span><span class="hs-name" data-en="Central Cooling &amp; HVAC">التبريد والتكييف المركزي</span><span class="hs-desc" data-en="Chillers, cooling towers, air handling units and VRF">الشلرات وأبراج التبريد ووحدات مناولة الهواء وأنظمة VRF</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li data-sys="fire"><a href="fire-protection.html"><span class="sys-code">FIRE · 02</span><span class="hs-name" data-en="Fire Protection">مكافحة الحرائق</span><span class="hs-desc" data-en="Sprinklers, fire pumps, alarm and FM-200 suppression">شبكات الرشاشات ومضخات الحريق والإنذار والإطفاء بالغاز FM-200</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li data-sys="bms"><a href="building-management.html"><span class="sys-code">BMS · 03</span><span class="hs-name" data-en="Building Management">إدارة البنايات</span><span class="hs-desc" data-en="Central control and monitoring of HVAC, lighting and energy">سيطرة ومراقبة مركزية للتبريد والإنارة والطاقة</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="facts-band" aria-label="المجموعة بأرقام" data-en-label="The group at a glance">
+  <div class="wrap">
     <dl class="facts">
       <div><dt class="mono">2002</dt><dd data-en="Founded in Iraq">سنة تأسيس المجموعة في العراق</dd></div>
       <div><dt><span class="mono">5,000</span><small data-en="TR">طن تبريد</small></dt><dd data-en="Cooling plant, Imam Al-Sadiq Hospital, Babil">منظومة مستشفى الإمام الصادق، بابل</dd></div>
@@ -200,7 +213,7 @@
       <p class="lead" data-en="We design, install and maintain cooling, fire protection and building management together, so the building runs as one coordinated system rather than separate contracts.">نصمّم التبريد ومكافحة الحرائق وإدارة البناية وننفّذها ونصينها معاً، بحيث تعمل البناية كمنظومة واحدة منسّقة لا كعقود منفصلة.</p>
     </div>
 
-    <div class="sys-cards">
+    <div class="sys-cards reveal-stagger">
       <article class="sys-card" data-sys="hvac">
         <picture><source type="image/webp" srcset="images/site-ductwork-600.webp 600w, images/site-ductwork-1000.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 38vw, 400px"><img src="images/site-ductwork.jpg" width="1000" height="750" alt="شبكة دكت معلّقة قيد التنفيذ في أحد مواقع العمل" data-en-alt="Suspended ductwork being installed on one of our sites" loading="lazy" decoding="async"></picture>
         <div class="sys-card-body">
@@ -259,12 +272,12 @@
       <h2 id="togetherTitle" data-en="One coordinated system, not three contracts that don’t talk to each other">منظومة واحدة منسّقة، لا ثلاثة عقود لا تتكلم مع بعضها</h2>
       <p class="lead" data-en="The building management system links cooling to fire protection. When a fire alarm triggers, the air handling units shut down automatically instead of pushing air and smoke through the building.">منظومة إدارة البناية تربط التبريد بمكافحة الحريق: عند تفعيل إنذار الحريق تتوقف وحدات مناولة الهواء تلقائياً بدل أن تدفع الهواء والدخان في البناية.</p>
     </div>
-    <ol class="chain">
-      <li data-sys="fire"><span class="sys-code">FIRE</span><strong data-en="The fire alarm triggers">يتفعّل إنذار الحريق</strong><p data-en="Detectors and alarm panels detect the fire early.">تكتشف الكواشف ولوحات الإنذار الحريق مبكراً.</p></li>
-      <li data-sys="bms"><span class="sys-code">BMS</span><strong data-en="The BMS makes the link">منظومة إدارة البناية تتولى الربط</strong><p data-en="The interlock is designed and tested as part of one contract.">يُصمَّم الربط ويُختبر ضمن عقد واحد.</p></li>
-      <li data-sys="hvac"><span class="sys-code">HVAC</span><strong data-en="Air handling units stop">تتوقف وحدات مناولة الهواء</strong><p data-en="Automatically — so they do not spread smoke.">تلقائياً، حتى لا تنشر الدخان.</p></li>
+    <ol class="chain" aria-label="مثال: الربط مع إنذار الحريق" data-en-label="Example: the fire alarm interlock">
+      <li data-sys="fire"><span class="chain-node" aria-hidden="true"><svg><use href="#i-alarm"/></svg></span><span class="chain-link" aria-hidden="true"></span><span class="sys-code">FIRE</span><strong data-en="The fire alarm triggers">يتفعّل إنذار الحريق</strong><p data-en="Detectors and alarm panels detect the fire early.">تكتشف الكواشف ولوحات الإنذار الحريق مبكراً.</p></li>
+      <li data-sys="bms"><span class="chain-node" aria-hidden="true"><svg><use href="#i-bms"/></svg></span><span class="chain-link" aria-hidden="true"></span><span class="sys-code">BMS</span><strong data-en="The BMS makes the link">منظومة إدارة البناية تتولى الربط</strong><p data-en="The interlock is designed and tested as part of one contract.">يُصمَّم الربط ويُختبر ضمن عقد واحد.</p></li>
+      <li data-sys="hvac"><span class="chain-node" aria-hidden="true"><svg><use href="#i-fan"/></svg></span><span class="sys-code">HVAC</span><strong data-en="Air handling units stop">تتوقف وحدات مناولة الهواء</strong><p data-en="Automatically — so they do not spread smoke.">تلقائياً، حتى لا تنشر الدخان.</p></li>
     </ol>
-    <ul class="reasons">
+    <ul class="reasons reveal-stagger">
       <li><h3 data-en="Supplied direct from the source">تجهيز مباشر من المصدر</h3><p data-en="The exclusive Euroclima agency, authorised BAC distribution and cooperation with Carrier and York mean original equipment, available spares and a clear warranty.">الوكالة الحصرية لشركة Euroclima، والتوزيع المعتمد لشركة BAC، والتعاون مع شركتي Carrier وYork: معدات أصلية وقطع غيار متوفرة وضمان واضح.</p></li>
       <li><h3 data-en="One contract, one responsible party">عقد واحد وجهة واحدة مسؤولة</h3><p data-en="Cooling, fire protection and building management under one contract, instead of splitting the work between several contractors.">التبريد ومكافحة الحرائق وإدارة البناية بعقد واحد، بدل توزيع العمل على مقاولين متعددين.</p></li>
       <li><h3 data-en="From study to commissioning">من الدراسة حتى التشغيل</h3><p data-en="Consultancy, technical studies and load calculations, then supply, installation and commissioning by our own crews under engineering supervision.">استشارات ودراسات فنية واحتساب أحمال، ثم تجهيز وتركيب وتشغيل بكوادر الشركة وبإشراف هندسي حتى التسليم.</p></li>
@@ -282,17 +295,17 @@
       </div>
       <a class="more-link" href="projects.html"><span data-en="View all projects">عرض جميع المشاريع</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
-    <div class="schedule-wrap">
+    <div class="schedule-wrap reveal">
       <table class="schedule">
         <caption data-en="Central cooling capacity of each project, in tons of refrigeration (TR).">سعة منظومة التبريد المركزي لكل مشروع، بالطن التبريدي.</caption>
         <thead><tr><th scope="col" data-en="Capacity">السعة</th><th scope="col" data-en="Project">المشروع</th><th scope="col" data-en="Location">الموقع</th><th scope="col" data-en="Sector">القطاع</th></tr></thead>
         <tbody>
-          <tr><td class="cap"><span class="mono">5,000</span><span class="unit" data-en="TR">طن تبريد</span></td><th scope="row"><span class="pname" data-en="Imam Al-Sadiq Hospital (400 beds)">مستشفى الإمام الصادق (400 سرير)</span><span class="pwith" data-en="With Ejarsan, Türkiye">بالتعاون مع شركة أجارسن التركية</span></th><td class="ploc" data-en="Babil">بابل</td><td class="psec"><span class="sector" data-en="Healthcare">الصحة</span></td></tr>
-          <tr><td class="cap"><span class="mono">1,500</span><span class="unit" data-en="TR">طن تبريد</span></td><th scope="row"><span class="pname" data-en="Ministry of Finance">وزارة المالية</span><span class="pwith" data-en="With Baltimore Aircoil, Belgium">مع شركة بالتيمور البلجيكية</span></th><td class="ploc" data-en="Al-Waziriya, Baghdad">الوزيرية، بغداد</td><td class="psec"><span class="sector" data-en="Government">المؤسسات الحكومية</span></td></tr>
-          <tr><td class="cap"><span class="mono">750</span><span class="unit" data-en="TR">طن تبريد</span></td><th scope="row"><span class="pname" data-en="Oncology Hospital">مستشفى الأمراض السرطانية</span><span class="pwith" data-en="With Ejarsan, Türkiye">بالتعاون مع شركة أجارسن التركية</span></th><td class="ploc" data-en="Basra">البصرة</td><td class="psec"><span class="sector" data-en="Healthcare">الصحة</span></td></tr>
-          <tr><td class="cap"><span class="mono">600</span><span class="unit" data-en="TR">طن تبريد</span></td><th scope="row"><span class="pname" data-en="Al-Waha Mall">مول الواحة</span><span class="pwith" data-en="With Surooh Sinjar">بالشراكة مع شركة صروح سنجار</span></th><td class="ploc" data-en="Al-Jadriya, Baghdad">الجادرية، بغداد</td><td class="psec"><span class="sector" data-en="Commercial">المنشآت التجارية</span></td></tr>
-          <tr><td class="cap"><span class="mono">450</span><span class="unit" data-en="TR">طن تبريد</span></td><th scope="row"><span class="pname" data-en="Kimadia Pharmaceutical Warehouses">مخازن أدوية كيماديا</span><span class="pwith" data-en="With Near East General Contracting">مع شركة الشرق الأدنى للمقاولات العامة</span></th><td class="ploc" data-en="Al-Jamia, Baghdad">حي الجامعة، بغداد</td><td class="psec"><span class="sector" data-en="Pharmaceutical">الأدوية</span></td></tr>
-          <tr><td class="cap"><span class="mono">450</span><span class="unit" data-en="TR">طن تبريد</span></td><th scope="row"><span class="pname" data-en="Bayt Al-Hikma">بيت الحكمة</span><span class="pwith" data-en="Under the Council of Ministers and the Ministry of Industry and Minerals">بإشراف مجلس الوزراء ووزارة الصناعة والمعادن</span></th><td class="ploc" data-en="Al-Maidan, Baghdad">الميدان، بغداد</td><td class="psec"><span class="sector" data-en="Public">المنشآت العامة</span></td></tr>
+          <tr><td class="cap"><span class="mono">5,000</span><span class="unit" data-en="TR">طن تبريد</span><span class="cap-bar" style="--cap:1.000" aria-hidden="true"></span></td><th scope="row"><span class="pname" data-en="Imam Al-Sadiq Hospital (400 beds)">مستشفى الإمام الصادق (400 سرير)</span><span class="pwith" data-en="With Ejarsan, Türkiye">بالتعاون مع شركة أجارسن التركية</span></th><td class="ploc" data-en="Babil">بابل</td><td class="psec"><span class="sector" data-en="Healthcare">الصحة</span></td></tr>
+          <tr><td class="cap"><span class="mono">1,500</span><span class="unit" data-en="TR">طن تبريد</span><span class="cap-bar" style="--cap:0.300" aria-hidden="true"></span></td><th scope="row"><span class="pname" data-en="Ministry of Finance">وزارة المالية</span><span class="pwith" data-en="With Baltimore Aircoil, Belgium">مع شركة بالتيمور البلجيكية</span></th><td class="ploc" data-en="Al-Waziriya, Baghdad">الوزيرية، بغداد</td><td class="psec"><span class="sector" data-en="Government">المؤسسات الحكومية</span></td></tr>
+          <tr><td class="cap"><span class="mono">750</span><span class="unit" data-en="TR">طن تبريد</span><span class="cap-bar" style="--cap:0.150" aria-hidden="true"></span></td><th scope="row"><span class="pname" data-en="Oncology Hospital">مستشفى الأمراض السرطانية</span><span class="pwith" data-en="With Ejarsan, Türkiye">بالتعاون مع شركة أجارسن التركية</span></th><td class="ploc" data-en="Basra">البصرة</td><td class="psec"><span class="sector" data-en="Healthcare">الصحة</span></td></tr>
+          <tr><td class="cap"><span class="mono">600</span><span class="unit" data-en="TR">طن تبريد</span><span class="cap-bar" style="--cap:0.120" aria-hidden="true"></span></td><th scope="row"><span class="pname" data-en="Al-Waha Mall">مول الواحة</span><span class="pwith" data-en="With Surooh Sinjar">بالشراكة مع شركة صروح سنجار</span></th><td class="ploc" data-en="Al-Jadriya, Baghdad">الجادرية، بغداد</td><td class="psec"><span class="sector" data-en="Commercial">المنشآت التجارية</span></td></tr>
+          <tr><td class="cap"><span class="mono">450</span><span class="unit" data-en="TR">طن تبريد</span><span class="cap-bar" style="--cap:0.090" aria-hidden="true"></span></td><th scope="row"><span class="pname" data-en="Kimadia Pharmaceutical Warehouses">مخازن أدوية كيماديا</span><span class="pwith" data-en="With Near East General Contracting">مع شركة الشرق الأدنى للمقاولات العامة</span></th><td class="ploc" data-en="Al-Jamia, Baghdad">حي الجامعة، بغداد</td><td class="psec"><span class="sector" data-en="Pharmaceutical">الأدوية</span></td></tr>
+          <tr><td class="cap"><span class="mono">450</span><span class="unit" data-en="TR">طن تبريد</span><span class="cap-bar" style="--cap:0.090" aria-hidden="true"></span></td><th scope="row"><span class="pname" data-en="Bayt Al-Hikma">بيت الحكمة</span><span class="pwith" data-en="Under the Council of Ministers and the Ministry of Industry and Minerals">بإشراف مجلس الوزراء ووزارة الصناعة والمعادن</span></th><td class="ploc" data-en="Al-Maidan, Baghdad">الميدان، بغداد</td><td class="psec"><span class="sector" data-en="Public">المنشآت العامة</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -302,7 +315,7 @@
 
 <section class="sec sec-alt" id="about" aria-labelledby="aboutTitle">
   <div class="wrap">
-    <div class="split">
+    <div class="split reveal">
       <div>
         <p class="eyebrow" data-en="About the group">عن المجموعة</p>
         <h2 id="aboutTitle" data-en="More than twenty years of building services in Iraq">أكثر من عشرين عاماً في خدمات البنايات في العراق</h2>
@@ -488,11 +501,15 @@
   <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
+  <symbol id="i-alarm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14a7 7 0 0 1 14 0v3H5z"/><path d="M3 20h18M12 4V2M4.6 6.6 3.2 5.2M19.4 6.6l1.4-1.4"/><path d="M12 10.5v3.5"/></g></symbol>
+  <symbol id="i-bms" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 6V3M15 6V3M9 21v-3M15 21v-3M6 9H3M6 15H3M21 9h-3M21 15h-3"/></g></symbol>
+  <symbol id="i-fan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2"/><circle cx="12" cy="12" r="1.6"/><path d="M12 10.4c-.6-2.6.2-4.6 2.4-5 1.6.4 1.6 2.6-.6 4.4M13.6 12c2.6-.6 4.6.2 5 2.4-.4 1.6-2.6 1.6-4.4-.6M12 13.6c.6 2.6-.2 4.6-2.4 5-1.6-.4-1.6-2.6.6-4.4M10.4 12c-2.6.6-4.6-.2-5-2.4.4-1.6 2.6-1.6 4.4.6"/></g></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
 </svg>
 
-<script>window.SITE_I18N = {"title": {"ar": "مجموعة البحراني — التبريد المركزي ومكافحة الحرائق وإدارة البنايات في العراق", "en": "Albahrany Group — Central Cooling, Fire Protection & Building Management in Iraq"}, "desc": {"ar": "مجموعة البحراني: تصميم وتنفيذ وصيانة منظومات التبريد والتكييف المركزي ومكافحة الحرائق وإدارة البنايات (BMS) في العراق منذ 2002. وكالة حصرية لشركة Euroclima وموزّع معتمد لشركة Baltimore Aircoil.", "en": "Albahrany Group designs, installs and maintains central cooling and HVAC, fire protection and building management systems (BMS) in Iraq since 2002. Exclusive Euroclima agency and authorised Baltimore Aircoil distributor."}};</script>
-<script src="assets/site.js?v=20261103" defer></script>
+<script>window.SITE_I18N = {"title": {"ar": "مجموعة البحراني — التبريد المركزي ومكافحة الحرائق وإدارة البنايات في العراق", "en": "Albahrany Group — Central Cooling, Fire Protection & Building Management in Iraq", "ku": "مجموعة البحراني — التبريد المركزي ومكافحة الحرائق وإدارة البنايات في العراق"}, "desc": {"ar": "مجموعة البحراني: تصميم وتنفيذ وصيانة منظومات التبريد والتكييف المركزي ومكافحة الحرائق وإدارة البنايات (BMS) في العراق منذ 2002. وكالة حصرية لشركة Euroclima وموزّع معتمد لشركة Baltimore Aircoil.", "en": "Albahrany Group designs, installs and maintains central cooling and HVAC, fire protection and building management systems (BMS) in Iraq since 2002. Exclusive Euroclima agency and authorised Baltimore Aircoil distributor.", "ku": "مجموعة البحراني: تصميم وتنفيذ وصيانة منظومات التبريد والتكييف المركزي ومكافحة الحرائق وإدارة البنايات (BMS) في العراق منذ 2002. وكالة حصرية لشركة Euroclima وموزّع معتمد لشركة Baltimore Aircoil."}};</script>
+<script src="assets/site.js?v=20261110" defer></script>
 
 </body>
 </html>

@@ -8,7 +8,7 @@
   if (!form) return;
   var cfg = window.ALBAHRANY_FORM || {};
   var online = !!(cfg.endpoint && /^https?:\/\//.test(cfg.endpoint));
-  var lang = function () { return (window.AB_LANG && window.AB_LANG()) || 'ar'; };
+  var lang = function () { var l = (window.AB_LANG && window.AB_LANG()) || 'ar'; return T[l] ? l : 'ar'; };
 
   var T = {
     ar: {
@@ -34,6 +34,18 @@
       lName: 'Name', lOrg: 'Organisation', lPhone: 'Phone', lEmail: 'Email',
       lLoc: 'Project location', lService: 'System required', lDetails: 'Details',
       sending: 'Sending…', copied: 'Request text copied.', copyFail: 'Copy failed — select the text and copy it manually.'
+    },
+    ku: {
+      name: 'تکایە ناوەکەت بنووسە.',
+      phone: 'تکایە ژمارەی تەلەفۆنێکی دروست بنووسە، باشترە لەگەڵ کۆدی وڵات، وەک \u2066+964 7XX XXX XXXX\u2069.',
+      email: 'شێوەی ئیمەیڵەکە دروست نییە، وەک name@example.com.',
+      service: 'تکایە ئەو سیستەم یان خزمەتگوزارییە هەڵبژێرە کە پێویستتە.',
+      details: 'تکایە کورتەیەک دەربارەی پڕۆژەکە بنووسە (لانیکەم 10 پیت).',
+      summary: function (n) { return n === 1 ? 'خانەیەک پێویستی بە ڕاستکردنەوە هەیە.' : n + ' خانە پێویستیان بە ڕاستکردنەوە هەیە.'; },
+      heading: 'داواکاریی لێکۆڵینەوەی تەکنیکی یان نرخ',
+      lName: 'ناو', lOrg: 'دامەزراوە یان کۆمپانیا', lPhone: 'تەلەفۆن', lEmail: 'ئیمەیڵ',
+      lLoc: 'شوێنی پڕۆژە', lService: 'سیستەمی داواکراو', lDetails: 'وردەکاری',
+      sending: 'لە ناردندایە…', copied: 'دەقی داواکارییەکە کۆپی کرا.', copyFail: 'کۆپیکردن سەرکەوتوو نەبوو — دەقەکە دیاری بکە و بە دەست کۆپی بکە.'
     }
   };
 

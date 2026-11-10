@@ -10,6 +10,8 @@ Sources:
     _build/layout.html      shared <head>, header, footer and scripts
     _build/partials/*.html  reusable blocks, inserted with <!--include:name-->
     _build/pages/*.html     one file per page: a JSON header, then the <main> content
+    _build/i18n/ku.json     Kurdish (Sorani) translations, keyed by the English text.
+                            Every data-en / data-en-* value gets a matching data-ku / data-ku-*.
 
 The generated *.html files in the site root are what GitHub Pages publishes.
 Edit the sources, not the generated files, then run this script.
@@ -25,8 +27,8 @@ from html.parser import HTMLParser
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "_build")
 SITE = "https://albahranygroup.com/"
-VERSION = "20261103"          # bump to force browsers to reload CSS/JS
-LASTMOD = "2026-11-03"        # sitemap <lastmod>
+VERSION = "20261110"          # bump to force browsers to reload CSS/JS
+LASTMOD = "2026-11-10"        # sitemap <lastmod>
 
 ORG_ID = SITE + "#organization"
 
@@ -38,6 +40,36 @@ def read(path):
 
 def esc(s):
     return html.escape(s, quote=True)
+
+
+# --------------------------------------------------------------------------
+# Kurdish (Sorani): looked up by the English text, so page sources stay
+# bilingual and the translation can be reviewed in one file.
+# --------------------------------------------------------------------------
+KU_PATH = os.path.join(SRC, "i18n", "ku.json")
+KU = json.loads(read(KU_PATH)) if os.path.exists(KU_PATH) else {}
+KU_MISSING = set()
+KU_USED = set()
+
+
+def ku(en):
+    """Kurdish for an English string; records misses for --check."""
+    key = " ".join(en.split())
+    if key in KU and KU[key]:
+        KU_USED.add(key)
+        return KU[key]
+    KU_MISSING.add(key)
+    return None
+
+
+def add_kurdish(page):
+    def rep(m):
+        attr, val = m.group(1), m.group(2)
+        k = ku(html.unescape(val))
+        if k is None:
+            return m.group(0)
+        return '%s="%s" %s="%s"' % (attr, val, attr.replace("data-en", "data-ku"), esc(k))
+    return re.sub(r'\b(data-en(?:-label|-alt|-placeholder|-title)?)="([^"]*)"', rep, page)
 
 
 # --------------------------------------------------------------------------
@@ -205,6 +237,9 @@ def build_page(meta, layout):
         head.append(ld)
     page = page.replace("<!--head-->", "\n".join(head))
 
+    page = add_kurdish(page)
+    t = dict(t, ku=ku(t["en"]) or t["ar"])
+    d = dict(d, ku=ku(d["en"]) or d["ar"])
     i18n = {"title": t, "desc": d}
     page = page.replace("<!--i18n-->", "<script>window.SITE_I18N = %s;</script>"
                         % json.dumps(i18n, ensure_ascii=False))
@@ -290,7 +325,8 @@ class Checker(HTMLParser):
         for tag, a in reversed(self.stack):
             if tag in ("script", "style", "title", "option") and tag != "option":
                 return
-            if "data-en" in a or a.get("data-lang") == "ar" or tag in ("script", "style"):
+            # text in an element with its own lang="" is fixed on purpose (e.g. the language menu)
+            if "data-en" in a or "lang" in a or a.get("data-lang") == "ar" or tag in ("script", "style"):
                 return
         self.problems.append("Arabic text without English: %r" % data.strip()[:60])
 
@@ -339,6 +375,12 @@ def main():
         problems = check(dict(outputs))
         for p in problems:
             print("  ! " + p)
+        for k in sorted(KU_MISSING):
+            problems.append("no Kurdish for: %r" % k[:70])
+            print("  ! no Kurdish for: %r" % k[:90])
+        unused = sorted(set(KU) - KU_USED)
+        if unused:
+            print("  (note) %d unused Kurdish entries, e.g. %r" % (len(unused), unused[0][:60]))
         print("check: %s" % ("no problems found" if not problems else "%d problem(s)" % len(problems)))
         sys.exit(1 if problems else 0)
 
