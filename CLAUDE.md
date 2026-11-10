@@ -15,27 +15,30 @@ Specialist services: refrigeration, after-sales, TAB, energy efficiency, IAQ and
   `python3 _build/build.py --check` (Python 3 standard library only).
   - `_build/layout.html` holds the shared `<head>`, top bar, header and navigation, footer, mobile contact bar and SVG icons.
   - `_build/partials/*.html` holds reusable blocks, inserted with `<!--include:name-->`: `cta`, `partners`, `process`, `projects-table` and `specialist`.
+  - `_build/i18n/ku.json` holds the Kurdish (Sorani) translation of every English string.
   - `_build/pages/*.html` has one file per page. Each starts with a JSON header (title/desc in ar+en, crumbs, nav key, schema, CTA text vars), followed by the `<main>` content.
   - `<x-photo name="…" alt-ar alt-en sizes>` expands to a `<picture>` using the existing WebP sizes in `images/`.
-  - The build also writes `sitemap.xml`. The `--check` flag reports missing translations, broken links and anchors, duplicate ids, and images without bilingual alt text. It must show "no problems found".
+  - The build also writes `sitemap.xml`. The `--check` flag reports missing English or Kurdish translations, broken links and anchors, duplicate ids, and images without bilingual alt text. It must show "no problems found".
 - `assets/site.css` holds the design tokens (top of file) and all components. `assets/site.js` handles the language switch, navigation, project filter and old-anchor redirects.
 - Contact form: `assets/contact-form.js` holds the logic and `assets/form-config.js` holds the **only** setting to edit.
 - `_config.yml` keeps `CLAUDE.md` out of the published site. Folders starting with `_` or `.` are never published.
 
 ## Language
 
-Arabic is the default (`lang="ar" dir="rtl"`). English is a client-side switch on the same URL:
+Arabic is the default (`lang="ar" dir="rtl"`). English (`lang="en"`, LTR) and Kurdish Sorani (`lang="ckb"`, RTL) are client-side switches on the same URL, chosen from the language menu in the header:
 - Arabic text lives in the element.
 - English lives in `data-en`, with `data-en-label`, `data-en-alt`, `data-en-placeholder` and `data-en-title` for attributes.
+- Kurdish lives in `_build/i18n/ku.json`, keyed by the English text. The build adds the matching `data-ku` / `data-ku-*` attributes, so page sources stay bilingual. **If you change an English string, update its key in `ku.json`** (the check reports any English text with no Kurdish). The Kurdish was drafted without native review; have a native Sorani speaker review `ku.json`.
+- JavaScript strings (form messages in `assets/contact-form.js`, filter and menu labels in `assets/site.js`) carry `ar`, `en` and `ku` versions.
 - An element with `data-en` must contain text only, no child tags.
-- The visitor's choice is stored in `localStorage` (`ab-lang`).
+- The visitor's choice is stored in `localStorage` (`ab-lang`: `ar`, `en` or `ku`).
 
-There are no separate English URLs and no `hreflang`. Changing that is an SEO decision for the owner. Use logical CSS properties. Phone numbers, emails and Latin names in Arabic text get `dir="ltr"`.
+There are no separate English or Kurdish URLs and no `hreflang`. Changing that is an SEO decision for the owner. Use logical CSS properties. Phone numbers, emails and Latin names in Arabic or Kurdish text get `dir="ltr"`.
 
 ## Non-negotiable rules
 
 1. **Company facts come only from this repo.** Do not invent or "improve" services, projects, clients, partners, numbers, years, certifications or contact details. Ask the owner when a fact is missing. Fire protection and BMS have no project list in the repo, so do not add one without owner-supplied facts.
-2. **Both languages, everywhere.** Every visible string, `aria-label`, `alt` and form message needs Arabic and English.
+2. **All languages, everywhere.** Every visible string, `aria-label`, `alt` and form message needs Arabic, English and Kurdish.
 3. **Keep public URLs.** The 14 public `.html` URLs (13 original pages plus `services.html`) are in the sitemap. GitHub Pages cannot redirect server-side, so any URL change needs an owner-approved plan. Keep the in-page anchor ids that older links use (`#systems`, `#choose`, `#products`, `#method`, `#faq`, `#process` and others).
 4. **The contact form must never claim delivery it did not make.** With no endpoint it only prepares the message, and the visitor sends it by WhatsApp or email.
 5. **Read before you design or edit**, and present major design or architecture changes to the owner first.
